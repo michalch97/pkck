@@ -1,1 +1,1 @@
-"# Programowanie komunikacji czàowiek-komputer" 
+# Programowanie komunikacji cz≈Çowiek-komputer
