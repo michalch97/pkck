@@ -1,0 +1,22 @@
+<!DOCTYPE flight_schedule [
+        <!ELEMENT flight_schedule (launch)>
+        <!ELEMENT launch (launchpad, customer, rocket, payload, launch_date, cost)>
+        <!ELEMENT launchpad (name, location)>
+        <!ELEMENT customer (name, contact_info)>
+        <!ELEMENT contact_info (phone_number, location)>
+        <!ELEMENT rocket (name, mass, thrust, payload_capacity, cost)>
+        <!ELEMENT payload (payload_type, mass)>
+        <!ELEMENT payload_type (capsule | sattelite | cargo)>
+
+        <!ELEMENT launch_date (#PCDATA)>
+        <!ELEMENT phone_number (#PCDATA)>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT location (#PCDATA)>
+        <!ELEMENT cost (#PCDATA)>
+        <!ELEMENT mass (#PCDATA)>
+        <!ELEMENT thrust (#PCDATA)>
+        <!ELEMENT capsule (#PCDATA)>
+        <!ELEMENT payload_capacity (#PCDATA)>
+        <!ELEMENT sattelite (#PCDATA)>
+        <!ELEMENT cargo (#PCDATA)>
+        ]>
