@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE flight_schedule SYSTEM "flightSchedule.dtd">
+<?xml-stylesheet?>
+<flight_schedule>
+    <launch>
+        <launchpad>
+            <name>LC-39</name>
+            <location>Florida</location>
+        </launchpad>
+        <customer>
+            <name>C</name>
+            <contact_info>
+                <phone_number>34234234234</phone_number>
+                <location>E</location>
+            </contact_info>
+        </customer>
+        <rocket>
+            <name></name>
+            <mass></mass>
+            <thrust></thrust>
+            <payload_capacity></payload_capacity>
+            <cost></cost>
+        </rocket>
+        <payload>
+            <payload_type><capsule/></payload_type>
+            <mass></mass>
+        </payload>
+        <launch_date></launch_date>
+        <cost></cost>
+    </launch>
+</flight_schedule>

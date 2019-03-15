@@ -1,4 +1,4 @@
-<!DOCTYPE flight_schedule [
+<!-- <!DOCTYPE flight_schedule [ -->
         <!ELEMENT flight_schedule (launch)>
         <!ELEMENT launch (launchpad, customer, rocket, payload, launch_date, cost)>
         <!ELEMENT launchpad (name, location)>
@@ -19,4 +19,4 @@
         <!ELEMENT payload_capacity (#PCDATA)>
         <!ELEMENT sattelite (#PCDATA)>
         <!ELEMENT cargo (#PCDATA)>
-        ]>
+        <!-- ]> -->
