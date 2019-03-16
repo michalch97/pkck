@@ -1,22 +1,46 @@
-<!-- <!DOCTYPE flight_schedule [ -->
-        <!ELEMENT flight_schedule (launch)>
-        <!ELEMENT launch (launchpad, customer, rocket, payload, launch_date, cost)>
-        <!ELEMENT launchpad (name, location)>
-        <!ELEMENT customer (name, contact_info)>
-        <!ELEMENT contact_info (phone_number, location)>
-        <!ELEMENT rocket (name, mass, thrust, payload_capacity, cost)>
-        <!ELEMENT payload (payload_type, mass)>
-        <!ELEMENT payload_type (capsule | sattelite | cargo)>
+<!ELEMENT flight_schedule (authors, description, launches, launchpads, customers, rockets, payloads, locations)>
+<!ELEMENT authors (author)+>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
 
-        <!ELEMENT launch_date (#PCDATA)>
-        <!ELEMENT phone_number (#PCDATA)>
-        <!ELEMENT name (#PCDATA)>
-        <!ELEMENT location (#PCDATA)>
-        <!ELEMENT cost (#PCDATA)>
-        <!ELEMENT mass (#PCDATA)>
-        <!ELEMENT thrust (#PCDATA)>
-        <!ELEMENT capsule (#PCDATA)>
-        <!ELEMENT payload_capacity (#PCDATA)>
-        <!ELEMENT sattelite (#PCDATA)>
-        <!ELEMENT cargo (#PCDATA)>
-        <!-- ]> -->
+<!ELEMENT launches (launch)*>
+<!ELEMENT launchpads (launchpad)*>
+<!ELEMENT customers (customer)*>
+<!ELEMENT rockets (rocket)*>
+<!ELEMENT payloads (payload)*>
+<!ELEMENT locations (location)*>
+
+<!ELEMENT launch (launch_date, cost)>
+<!ELEMENT launchpad (name)>
+<!ELEMENT customer (name, contact_info)>
+<!ELEMENT contact_info (phone_number)>
+<!ELEMENT rocket (name, mass, thrust, payload_capacity, cost)>
+<!ELEMENT payload (payload_type, mass)>
+<!ELEMENT payload_type (capsule | sattelite | cargo)>
+
+<!ELEMENT launch_date (#PCDATA)>
+<!ELEMENT phone_number (#PCDATA)>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT location (#PCDATA)>
+<!ELEMENT cost (#PCDATA)>
+<!ELEMENT mass (#PCDATA)>
+<!ELEMENT thrust (#PCDATA)>
+<!ELEMENT capsule (#PCDATA)>
+<!ELEMENT payload_capacity (#PCDATA)>
+<!ELEMENT sattelite (#PCDATA)>
+<!ELEMENT cargo (#PCDATA)>
+
+<!ATTLIST launch launch_id ID #REQUIRED>
+<!ATTLIST launch launchpad_ref IDREF>
+<!ATTLIST launch customer_ref IDREF>
+<!ATTLIST launch rocket_ref IDREF>
+<!ATTLIST launch payload_ref IDREF>
+
+<!ATTLIST launchpad launchpad_id ID #REQUIRED>
+<!ATTLIST launchpad location_ref IDREF>
+
+<!ATTLIST location location_id ID #REQUIRED>
+<!ATTLIST customer customer_id ID #REQUIRED>
+<!ATTLIST contact_info location_ref IDREF>
+<!ATTLIST rocket rocket_id ID #REQUIRED>
+<!ATTLIST payload payload_id ID #REQUIRED>
