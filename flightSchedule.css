@@ -9,7 +9,14 @@ authors
 {
     display: inline-block;
     text-align: center;
-    width: 100%;
+    width: 99%;
+    margin: 0.5%;
+}
+
+author 
+{
+    font-size: 24pt !important;
+    color: cornflowerblue !important;
 }
 
 author, description, launches, launch
@@ -31,11 +38,14 @@ description
     display: block;
     width: 50%;
     margin: auto;
+    margin-bottom: 0.5%;
 }
 
 launches
 {
-    width: 97%;
+    width: 96%;
+    margin-left: 2%;
+    padding-top: 0.3%;
 }
 
 launch
@@ -43,6 +53,7 @@ launch
     border-style: solid;
     border-color: beige;
     padding: 1%;
+    width: 46%;
 }
 
 rocket > *, payload > *, contact_info > *, launchpad > *, launch > *
