@@ -4,6 +4,14 @@ flight_schedule
     background-size: cover;
     background-repeat: no-repeat;
 }
+
+authors
+{
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+}
+
 author, description, launches, launch
 {
     font-family: "Trebuchet MS", Helvetica, sans-serif;
