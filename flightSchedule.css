@@ -6,7 +6,7 @@ flight_schedule
 }
 author, description, launches, launch
 {
-    font-family: 'Source Code Pro';
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
     font-size: 16pt;
     color: white;
     background-color: rgb(41, 37, 37, 0.70);
@@ -32,7 +32,7 @@ launches
 
 launch
 {
-    border-style: dashed;
+    border-style: solid;
     border-color: beige;
     padding: 1%;
 }
@@ -45,7 +45,15 @@ rocket > *, payload > *, contact_info > *, launchpad > *, launch > *
 
 customer, payload, rocket
 {
+    border-color: rgb(109, 107, 107);
+    border-style: solid;
+    border-top: 1%;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
     text-align: left;
+    padding-top: 1%;
+    padding-bottom: 1%; 
 }
 
 launch:hover
@@ -56,8 +64,9 @@ launch:hover
 customer:hover, payload:hover, rocket:hover
 {
     text-transform: uppercase;
-    color: red;
+    color: rgb(142, 166, 185);
     text-align: center;
+    border-color: rgb(109, 107, 107);
 }
 
 launch_date::before
