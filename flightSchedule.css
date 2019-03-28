@@ -1,0 +1,141 @@
+flight_schedule
+{
+    background-image: url("https://cdn.arstechnica.net/wp-content/uploads/2018/06/42374725534_a653d1b7cb_k.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+author, description, launches, launch
+{
+    font-family: 'Source Code Pro';
+    font-size: 16pt;
+    color: white;
+    background-color: rgb(41, 37, 37, 0.70);
+    text-align: center;
+    border-style: double;
+    border-color: grey;
+    display: inline-block;
+    width: 46%;
+    margin: 0.5%;
+}
+
+description
+{
+    display: block;
+    width: 50%;
+    margin: auto;
+}
+
+launches
+{
+    width: 97%;
+}
+
+launch
+{
+    border-style: dashed;
+    border-color: beige;
+    padding: 1%;
+}
+
+rocket > *, payload > *, contact_info > *, launchpad > *, launch > *
+{
+    display: list-item;
+    list-style-type: none;
+}
+
+customer, payload, rocket
+{
+    text-align: left;
+}
+
+launch:hover
+{
+    background-color: rgb(24, 21, 21, 1);
+}
+
+customer:hover, payload:hover, rocket:hover
+{
+    text-transform: uppercase;
+    color: red;
+    text-align: center;
+}
+
+launch_date::before
+{
+    content: "Data startu: ";
+}
+
+cost::before
+{
+    content: "Koszt: ";
+}
+
+launchpad > name::before
+{
+    content: "Platforma startowa: ";
+}
+
+location::before
+{
+    content: "Lokalizacja: ";
+}
+
+customer::before
+{
+    content: "Klient: ";
+}
+
+phone_number::before
+{
+    content: "Numer telefonu: ";
+}
+
+payload_type::before
+{
+    content: "Typ ładunku: ";
+}
+
+capsule::before
+{
+    content: "kapsuła ";
+}
+
+sattelite::before
+{
+    content: "satelita ";
+}
+
+cargo::before
+{
+    content: "cargo ";
+}
+
+payload > mass::before
+{
+    content: "Masa ładunku: "
+}
+
+rocket > name::before
+{
+    content: "Nazwa rakiety: "
+}
+
+rocket > mass::before
+{
+    content: "Masa rakiety: "
+}
+
+rocket > thrust::before
+{
+    content: "Siła ciągu: "
+}
+
+rocket > payload_capacity::before
+{
+    content: "Pojemność: "
+}
+
+launchpads, customers, rockets, payloads, locations
+{
+    display: none;
+}

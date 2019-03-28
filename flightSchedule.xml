@@ -6,173 +6,313 @@
         <author>Michał Chmielewski</author>
         <author>Bartłomiej Ciesielski</author>
     </authors>
-
-    <description>TODO</description>
-
+    <description>Harmonogram lotów kosmicznych</description>
     <launches>
         <launch launch_id="lan_1" launchpad_ref="lp_1" customer_ref="cst_1" payload_ref="pal_1" rocket_ref="roc_1">
             <launch_date>2014-08-19T16:24:05Z</launch_date>
             <cost>$86000000</cost>
+            <launchpad location_ref="loc_1">
+                <name>LC-39A</name>
+                <location>Florida</location>
+            </launchpad>
+            <customer>
+                <name>NASA</name>
+                <contact_info location_ref="loc_5">
+                    <phone_number>234234234</phone_number>
+                    <location>Huston</location>
+                </contact_info>
+            </customer>
+            <payload>
+                <payload_type>
+                    <capsule>Dragon 2</capsule>
+                </payload_type>
+                <mass>4200 kg</mass>
+            </payload>
+            <rocket>
+                <name>Falcon 9</name>
+                <mass>549054 kg</mass>
+                <thrust>7607000 N</thrust>
+                <payload_capacity>22800 kg</payload_capacity>
+                <cost>$50000000</cost>
+            </rocket>
         </launch>
         <launch launch_id="lan_2" launchpad_ref="lp_1" customer_ref="cst_2" payload_ref="pal_4" rocket_ref="roc_1">
             <launch_date>2016-07-15T14:29:09Z</launch_date>
             <cost>$96000000</cost>
+            <launchpad location_ref="loc_1">
+                <name>LC-39A</name>
+                <location>Florida</location>
+            </launchpad>
+            <customer>
+                <name>Eutelsat</name>
+                <contact_info location_ref="loc_2">
+                    <phone_number>342342342</phone_number>
+                    <location>Paris</location>
+                </contact_info>
+            </customer>
+            <payload>
+                <payload_type>
+                    <sattelite>Eutelsat 117 West</sattelite>
+                </payload_type>
+                <mass>3600 kg</mass>
+            </payload>
+            <rocket>
+                <name>Falcon 9</name>
+                <mass>549054 kg</mass>
+                <thrust>7607000 N</thrust>
+                <payload_capacity>22800 kg</payload_capacity>
+                <cost>$50000000</cost>
+            </rocket>
         </launch>
         <launch launch_id="lan_3" launchpad_ref="lp_2" customer_ref="cst_3" payload_ref="pal_5" rocket_ref="roc_1">
             <launch_date>2017-01-14T17:54:21Z</launch_date>
             <cost>$107000000</cost>
+            <launchpad location_ref="loc_3">
+                <name>SLC-4E</name>
+                <location>California</location>
+            </launchpad>
+            <customer>
+                <name>Iridium Communications</name>
+                <contact_info location_ref="loc_4">
+                    <phone_number>342342342</phone_number>
+                    <location>McLean</location>
+                </contact_info>
+            </customer>
+            <payload>
+                <payload_type>
+                    <sattelite>Iridium NEXT-1</sattelite>
+                </payload_type>
+                <mass>9600 kg</mass>
+            </payload>
+            <rocket>
+                <name>Falcon 9</name>
+                <mass>549054 kg</mass>
+                <thrust>7607000 N</thrust>
+                <payload_capacity>22800 kg</payload_capacity>
+                <cost>$50000000</cost>
+            </rocket>
         </launch>
         <launch launch_id="lan_4" launchpad_ref="lp_3" customer_ref="cst_3" payload_ref="pal_6" rocket_ref="roc_4">
             <launch_date>2014-12-06T20:40:07Z</launch_date>
             <cost>$123000000</cost>
+            <launchpad location_ref="loc_6">
+                <name>ELA-3</name>
+                <location>El Segundo</location>
+            </launchpad>
+            <customer>
+                <name>Iridium Communications</name>
+                <contact_info location_ref="loc_4">
+                    <phone_number>342342342</phone_number>
+                    <location>McLean</location>
+                </contact_info>
+            </customer>
+            <payload>
+                <payload_type>
+                    <sattelite>DirecTV-14</sattelite>
+                </payload_type>
+                <mass>9600 kg</mass>
+            </payload>
+            <rocket>
+                <name>Ariane 5</name>
+                <mass>777000 kg</mass>
+                <thrust>15120000 N</thrust>
+                <payload_capacity>16000 kg</payload_capacity>
+                <cost>$220000000</cost>
+            </rocket>
         </launch>
         <launch launch_id="lan_5" launchpad_ref="lp_1" customer_ref="cst_1" payload_ref="pal_2" rocket_ref="roc_3">
             <launch_date>2016-10-17T23:45:22Z</launch_date>
             <cost>$762000000</cost>
+            <launchpad location_ref="loc_6">
+                <name>ELA-3</name>
+                <location>Kourou</location>
+            </launchpad>
+            <customer>
+                <name>NASA</name>
+                <contact_info location_ref="loc_5">
+                    <phone_number>234234234</phone_number>
+                    <location>Huston</location>
+                </contact_info>
+            </customer>
+            <payload>
+                <payload_type>
+                    <cargo>Cygnus</cargo>
+                </payload_type>
+                <mass>3750 kg</mass>
+            </payload>
+            <rocket>
+                <name>Delta IV</name>
+                <mass>733400 kg</mass>
+                <thrust>9420000 N</thrust>
+                <payload_capacity>26790 kg</payload_capacity>
+                <cost>$224000000</cost>
+            </rocket>
         </launch>
         <launch launch_id="lan_6" launchpad_ref="lp_3" customer_ref="cst_3" payload_ref="pal_7" rocket_ref="roc_4">
             <launch_date>2014-12-06T20:40:07Z</launch_date>
             <cost>$106000000</cost>
+            <launchpad location_ref="loc_6">
+                <name>ELA-3</name>
+                <location>Kourou</location>
+            </launchpad>
+            <customer>
+                <name>Iridium Communications</name>
+                <contact_info location_ref="loc_4">
+                    <phone_number>342342342</phone_number>
+                    <location>McLean</location>
+                </contact_info>
+            </customer>
+            <payload>
+                <payload_type>
+                    <sattelite>Galileo FOC 7</sattelite>
+                </payload_type>
+                <mass>3375 kg</mass>
+            </payload>
+            <rocket>
+                <name>Ariane 5</name>
+                <mass>777000 kg</mass>
+                <thrust>15120000 N</thrust>
+                <payload_capacity>16000 kg</payload_capacity>
+                <cost>$220000000</cost>
+            </rocket>
         </launch>
     </launches>
-
     <launchpads>
-        <launchpad launchpad_id="lp_1" location_ref="loc_1">
+        <launchpad_def launchpad_id="lp_1" location_ref="loc_1">
             <name>LC-39A</name>
-        </launchpad>
-        <launchpad launchpad_id="lp_2" location_ref="loc_3">
+        </launchpad_def>
+        <launchpad_def launchpad_id="lp_2" location_ref="loc_3">
             <name>SLC-4E</name>
-        </launchpad>
-        <launchpad launchpad_id="lp_3" location_ref="loc_6">
+        </launchpad_def>
+        <launchpad_def launchpad_id="lp_3" location_ref="loc_6">
             <name>ELA-3</name>
-        </launchpad>
+        </launchpad_def>
     </launchpads>
-
     <customers>
-        <customer customer_id="cst_1">
+        <customer_def customer_id="cst_1">
             <name>NASA</name>
             <contact_info location_ref="loc_5">
                 <phone_number>234234234</phone_number>
+                <location>Huston</location>
             </contact_info>
-        </customer>
-        <customer customer_id="cst_2">
+        </customer_def>
+        <customer_def customer_id="cst_2">
             <name>Eutelsat</name>
             <contact_info location_ref="loc_2">
                 <phone_number>342342342</phone_number>
+                <location>Paris</location>
             </contact_info>
-        </customer>
-        <customer customer_id="cst_3">
+        </customer_def>
+        <customer_def customer_id="cst_3">
             <name>Iridium Communications</name>
             <contact_info location_ref="loc_4">
                 <phone_number>342342342</phone_number>
+                <location>McLean</location>
             </contact_info>
-        </customer>
-        <customer customer_id="cst_4">
+        </customer_def>
+        <customer_def customer_id="cst_4">
             <name>DirecTV</name>
             <contact_info location_ref="loc_7">
                 <phone_number>842446242</phone_number>
+                <location>El Segundo</location>
             </contact_info>
-        </customer>
+        </customer_def>
     </customers>
-
     <rockets>
-        <rocket rocket_id="roc_1">
+        <rocket_def rocket_id="roc_1">
             <name>Falcon 9</name>
             <mass>549054 kg</mass>
             <thrust>7607000 N</thrust>
             <payload_capacity>22800 kg</payload_capacity>
             <cost>$50000000</cost>
-        </rocket>
-        <rocket rocket_id="roc_2">
+        </rocket_def>
+        <rocket_def rocket_id="roc_2">
             <name>Falcon Heavy</name>
             <mass>1420788 kg</mass>
             <thrust>22800000 N</thrust>
             <payload_capacity>63800 kg</payload_capacity>
             <cost>$150000000</cost>
-        </rocket>
-        <rocket rocket_id="roc_3">
+        </rocket_def>
+        <rocket_def rocket_id="roc_3">
             <name>Delta IV</name>
             <mass>733400 kg</mass>
             <thrust>9420000 N</thrust>
             <payload_capacity>26790 kg</payload_capacity>
             <cost>$224000000</cost>
-        </rocket>
-        <rocket rocket_id="roc_4">
+        </rocket_def>
+        <rocket_def rocket_id="roc_4">
             <name>Ariane 5</name>
             <mass>777000 kg</mass>
             <thrust>15120000 N</thrust>
             <payload_capacity>16000 kg</payload_capacity>
             <cost>$220000000</cost>
-        </rocket>
+        </rocket_def>
     </rockets>
-
     <payloads>
-        <payload payload_id="pal_1">
+        <payload_def payload_id="pal_1">
             <payload_type>
                 <capsule>Dragon 2</capsule>
             </payload_type>
             <mass>4200 kg</mass>
-        </payload>
-        <payload payload_id="pal_2">
+        </payload_def>
+        <payload_def payload_id="pal_2">
             <payload_type>
                 <cargo>Cygnus</cargo>
             </payload_type>
             <mass>3750 kg</mass>
-        </payload>
-        <payload payload_id="pal_3">
+        </payload_def>
+        <payload_def payload_id="pal_3">
             <payload_type>
                 <cargo>Progress</cargo>
             </payload_type>
             <mass>7100 kg</mass>
-        </payload>
-        <payload payload_id="pal_4">
+        </payload_def>
+        <payload_def payload_id="pal_4">
             <payload_type>
                 <sattelite>Eutelsat 117 West</sattelite>
             </payload_type>
             <mass>3600 kg</mass>
-        </payload>
-        <payload payload_id="pal_5">
+        </payload_def>
+        <payload_def payload_id="pal_5">
             <payload_type>
                 <sattelite>Iridium NEXT-1</sattelite>
             </payload_type>
             <mass>9600 kg</mass>
-        </payload>
-        <payload payload_id="pal_6">
+        </payload_def>
+        <payload_def payload_id="pal_6">
             <payload_type>
                 <sattelite>DirecTV-14</sattelite>
             </payload_type>
             <mass>9600 kg</mass>
-        </payload>
-        <payload payload_id="pal_7">
+        </payload_def>
+        <payload_def payload_id="pal_7">
             <payload_type>
                 <sattelite>Galileo FOC 7</sattelite>
             </payload_type>
             <mass>3375 kg</mass>
-        </payload>
+        </payload_def>
     </payloads>
-
     <locations>
-        <location location_id="loc_1">
+        <location_def location_id="loc_1">
             Florida
-        </location>
-        <location location_id="loc_2">
+        </location_def>
+        <location_def location_id="loc_2">
             Paris
-        </location>
-        <location location_id="loc_3">
+        </location_def>
+        <location_def location_id="loc_3">
             California
-        </location>
-        <location location_id="loc_4">
+        </location_def>
+        <location_def location_id="loc_4">
             McLean
-        </location>
-        <location location_id="loc_5">
+        </location_def>
+        <location_def location_id="loc_5">
             Huston
-        </location>
-        <location location_id="loc_6">
+        </location_def>
+        <location_def location_id="loc_6">
             Kourou
-        </location>
-        <location location_id="loc_7">
+        </location_def>
+        <location_def location_id="loc_7">
             El Segundo
-        </location>
+        </location_def>
     </locations>
-
 </flight_schedule>
