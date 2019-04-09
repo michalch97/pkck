@@ -1,7 +1,9 @@
 <!ELEMENT flight_schedule (authors, description, launches, launchpads, customers, rockets, payloads, locations)>
 <!ELEMENT authors (author)+>
-<!ELEMENT author (#PCDATA)>
+<!ELEMENT author (first_name, surename)*>
 <!ELEMENT description (#PCDATA)>
+<!ELEMENT first_name (#PCDATA)>
+<!ELEMENT surename (#PCDATA)>
 
 <!ELEMENT launches (launch)*>
 <!ELEMENT launchpads (launchpad)*>
@@ -32,16 +34,18 @@
 <!ELEMENT cargo (#PCDATA)>
 
 <!ATTLIST launch launch_id ID #REQUIRED>
-<!ATTLIST launch launchpad_ref IDREF "lp_1">
-<!ATTLIST launch customer_ref IDREF "cst_1">
-<!ATTLIST launch rocket_ref IDREF "roc_1">
-<!ATTLIST launch payload_ref IDREF "pal_1">
-
+<!ATTLIST launch launchpad_ref IDREF #REQUIRED>
+<!ATTLIST launch customer_ref IDREF #REQUIRED>
+<!ATTLIST launch rocket_ref IDREF #REQUIRED>
+<!ATTLIST launch payload_ref IDREF #REQUIRED>
 <!ATTLIST launchpad launchpad_id ID #REQUIRED>
-<!ATTLIST launchpad location_ref IDREF "loc_5">
-
+<!ATTLIST launchpad location_ref IDREF #REQUIRED>
 <!ATTLIST location location_id ID #REQUIRED>
 <!ATTLIST customer customer_id ID #REQUIRED>
-<!ATTLIST contact_info location_ref IDREF "loc_5">
+<!ATTLIST contact_info location_ref IDREF #REQUIRED>
 <!ATTLIST rocket rocket_id ID #REQUIRED>
 <!ATTLIST payload payload_id ID #REQUIRED>
+<!ATTLIST cost currency CDATA #REQUIRED>
+<!ATTLIST mass unit CDATA #REQUIRED>
+<!ATTLIST thrust unit CDATA #REQUIRED>
+<!ATTLIST payload_capacity unit CDATA #REQUIRED>
