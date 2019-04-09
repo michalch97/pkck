@@ -4,22 +4,18 @@
 <!ELEMENT description (#PCDATA)>
 
 <!ELEMENT launches (launch)*>
-<!ELEMENT launchpads (launchpad_def)*>
-<!ELEMENT customers (customer_def)*>
-<!ELEMENT rockets (rocket_def)*>
-<!ELEMENT payloads (payload_def)*>
-<!ELEMENT locations (location_def)*>
+<!ELEMENT launchpads (launchpad)*>
+<!ELEMENT customers (customer)*>
+<!ELEMENT rockets (rocket)*>
+<!ELEMENT payloads (payload)*>
+<!ELEMENT locations (location)*>
 
-<!ELEMENT launch (launch_date, cost, launchpad, customer, payload, rocket)>
-<!ELEMENT launchpad (name, location)>
-<!ELEMENT launchpad_def (name)>
+<!ELEMENT launch (launch_date, cost)>
+<!ELEMENT launchpad (name)>
 <!ELEMENT customer (name, contact_info)>
-<!ELEMENT customer_def (name, contact_info)>
-<!ELEMENT contact_info (phone_number, location)>
+<!ELEMENT contact_info (phone_number)>
 <!ELEMENT rocket (name, mass, thrust, payload_capacity, cost)>
-<!ELEMENT rocket_def (name, mass, thrust, payload_capacity, cost)>
 <!ELEMENT payload (payload_type, mass)>
-<!ELEMENT payload_def (payload_type, mass)>
 <!ELEMENT payload_type (capsule | sattelite | cargo)>
 
 <!ELEMENT launch_date (#PCDATA)>
@@ -41,12 +37,11 @@
 <!ATTLIST launch rocket_ref IDREF "roc_1">
 <!ATTLIST launch payload_ref IDREF "pal_1">
 
-<!ATTLIST launchpad_def launchpad_id ID #REQUIRED>
-<!ATTLIST launchpad_def location_ref IDREF "loc_5">
+<!ATTLIST launchpad launchpad_id ID #REQUIRED>
 <!ATTLIST launchpad location_ref IDREF "loc_5">
 
-<!ATTLIST location_def location_id ID #REQUIRED>
-<!ATTLIST customer_def customer_id ID #REQUIRED>
+<!ATTLIST location location_id ID #REQUIRED>
+<!ATTLIST customer customer_id ID #REQUIRED>
 <!ATTLIST contact_info location_ref IDREF "loc_5">
-<!ATTLIST rocket_def rocket_id ID #REQUIRED>
-<!ATTLIST payload_def payload_id ID #REQUIRED>
+<!ATTLIST rocket rocket_id ID #REQUIRED>
+<!ATTLIST payload payload_id ID #REQUIRED>
