@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:l="http://example.com/launchpads" elementFormDefault="qualified" targetNamespace="http://example.com/launchpads" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="launchpads">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="launchpad" maxOccurs="unbounded" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="name" type="xsd:string" />
+            </xsd:sequence>
+            <xsd:attribute name="launchpad_id" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="lp_[0-9]*" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+            <xsd:attribute name="location_ref" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="loc_[0-9]*" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

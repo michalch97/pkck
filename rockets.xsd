@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:r="http://example.com/rockets" elementFormDefault="qualified" targetNamespace="http://example.com/rockets" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:element name="rockets">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="rocket" maxOccurs="unbounded" minOccurs="0">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="name" type="xsd:string" />
+              <xsd:element name="mass">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:nonNegativeInteger">
+                      <xsd:attribute name="unit" type="xsd:string" use="required" />
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="thrust" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:nonNegativeInteger">
+                      <xsd:attribute name="unit" type="xsd:string" use="required" />
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="payload_capacity">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                   <xsd:extension base="xsd:nonNegativeInteger">
+                     <xsd:attribute name="unit" type="xsd:string" use="required" />
+                   </xsd:extension>
+                 </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+              <xsd:element name="cost">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:nonNegativeInteger">
+                      <xsd:attribute name="currency" type="xsd:string" use="required" />
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+            <xsd:attribute name="rocket_id" use="required">
+              <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                  <xsd:pattern value="roc_[0-9]*" />
+                </xsd:restriction>
+              </xsd:simpleType>
+            </xsd:attribute>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>

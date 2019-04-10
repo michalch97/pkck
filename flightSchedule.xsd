@@ -1,129 +1,199 @@
- 
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="flight_schedule">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element name="authors">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element type="xs:string" name="author" maxOccurs="unbounded" minOccurs="0"/>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element type="xs:string" name="description"/>
-        <xs:element name="launches">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="launch" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:dateTime" name="launch_date"/>
-                    <xs:element type="xs:string" name="cost"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="launch_id" use="optional"/>
-                  <xs:attribute type="xs:string" name="launchpad_ref" use="optional"/>
-                  <xs:attribute type="xs:string" name="customer_ref" use="optional"/>
-                  <xs:attribute type="xs:string" name="payload_ref" use="optional"/>
-                  <xs:attribute type="xs:string" name="rocket_ref" use="optional"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="launchpads">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="launchpad" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="name"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="launchpad_id" use="optional"/>
-                  <xs:attribute type="xs:string" name="location_ref" use="optional"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="customers">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="customer" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="name"/>
-                    <xs:element name="contact_info">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:int" name="phone_number"/>
-                        </xs:sequence>
-                        <xs:attribute type="xs:string" name="location_ref" use="optional"/>
-                      </xs:complexType>
-                    </xs:element>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="customer_id" use="optional"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="rockets">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="rocket" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element type="xs:string" name="name"/>
-                    <xs:element type="xs:string" name="mass"/>
-                    <xs:element type="xs:string" name="thrust"/>
-                    <xs:element type="xs:string" name="payload_capacity"/>
-                    <xs:element type="xs:string" name="cost"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="rocket_id" use="optional"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="payloads">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="payload" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:sequence>
-                    <xs:element name="payload_type">
-                      <xs:complexType>
-                        <xs:sequence>
-                          <xs:element type="xs:string" name="capsule" minOccurs="0"/>
-                          <xs:element type="xs:string" name="cargo" minOccurs="0"/>
-                          <xs:element type="xs:string" name="sattelite" minOccurs="0"/>
-                        </xs:sequence>
-                      </xs:complexType>
-                    </xs:element>
-                    <xs:element type="xs:string" name="mass"/>
-                  </xs:sequence>
-                  <xs:attribute type="xs:string" name="payload_id" use="optional"/>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="locations">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="location" maxOccurs="unbounded" minOccurs="0">
-                <xs:complexType>
-                  <xs:simpleContent>
-                    <xs:extension base="xs:string">
-                      <xs:attribute type="xs:string" name="location_id" use="optional"/>
-                    </xs:extension>
-                  </xs:simpleContent>
-                </xs:complexType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-</xs:schema>
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:l="http://example.com/launchpads" xmlns:c="http://example.com/customers" xmlns:r="http://example.com/rockets" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="launchpads.xsd" namespace="http://example.com/launchpads" />
+  <xsd:import schemaLocation="customers.xsd" namespace="http://example.com/customers" />
+  <xsd:import schemaLocation="rockets.xsd" namespace="http://example.com/rockets" />
+  <xsd:element name="flight_schedule">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="authors" maxOccurs="1" minOccurs="1">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="author" maxOccurs="2" minOccurs="2">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="first_name" type="xsd:string" />
+                    <xsd:element name="surename" type="xsd:string" />
+                  </xsd:sequence>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="description" type="xsd:string" />
+        <xsd:element name="launches">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="launch" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="launch_date" type="xsd:dateTime" />
+                    <xsd:element name="cost">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:nonNegativeInteger">
+                            <xsd:attribute name="currency" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attributeGroup ref="launchattr" />
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element ref="l:launchpads"/>
+        <xsd:element ref="c:customers"/>
+        <xsd:element ref="r:rockets" />
+        <xsd:element name="payloads">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="payload" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:sequence>
+                    <xsd:element name="payload_type">
+                      <xsd:complexType>
+                        <xsd:choice>
+                          <xsd:element ref="capsule" />
+                          <xsd:element ref="sattelite" />
+                          <xsd:element ref="cargo" />
+                        </xsd:choice>
+                      </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="mass">
+                      <xsd:complexType>
+                        <xsd:simpleContent>
+                          <xsd:extension base="xsd:short">
+                            <xsd:attribute name="unit" type="xsd:string" use="required" />
+                          </xsd:extension>
+                        </xsd:simpleContent>
+                      </xsd:complexType>
+                    </xsd:element>
+                  </xsd:sequence>
+                  <xsd:attribute name="payload_id" use="required">
+                    <xsd:simpleType>
+                      <xsd:restriction base="xsd:string">
+                        <xsd:pattern value="pal_[0-9]*" />
+                      </xsd:restriction>
+                    </xsd:simpleType>
+                  </xsd:attribute>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+        <xsd:element name="locations">
+          <xsd:complexType>
+            <xsd:sequence>
+              <xsd:element name="location" maxOccurs="unbounded" minOccurs="0">
+                <xsd:complexType>
+                  <xsd:simpleContent>
+                    <xsd:extension base="xsd:string">
+                      <xsd:attribute name="location_id" use="required">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:ID">
+                            <xsd:pattern value="loc_[0-9]*" />
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:attribute>
+                    </xsd:extension>
+                  </xsd:simpleContent>
+                </xsd:complexType>
+              </xsd:element>
+            </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+    <xsd:key name="customerID">
+      <xsd:selector xpath="c:customers/c:customer" />
+      <xsd:field xpath="@customer_id" />
+    </xsd:key>
+    <xsd:keyref name="customerIDREF" refer="customerID">
+      <xsd:selector xpath="launches/launch" />
+      <xsd:field xpath="@customer_ref" />
+    </xsd:keyref>
+    <xsd:key name="payloadID">
+      <xsd:selector xpath="payloads/payload" />
+      <xsd:field xpath="@payload_id" />
+    </xsd:key>
+    <xsd:keyref name="payloadIDREF" refer="payloadID">
+      <xsd:selector xpath="launches/launch" />
+      <xsd:field xpath="@payload_ref" />
+    </xsd:keyref>
+    <xsd:key name="rocketID">
+      <xsd:selector xpath="r:rockets/r:rocket" />
+      <xsd:field xpath="@rocket_id" />
+    </xsd:key>
+    <xsd:keyref name="rocketIDREF" refer="rocketID">
+      <xsd:selector xpath="launches/launch" />
+      <xsd:field xpath="@rocket_ref" />
+    </xsd:keyref>
+    <xsd:key name="launchpadID">
+      <xsd:selector xpath="l:launchpads/l:launchpad" />
+      <xsd:field xpath="@launchpad_id" />
+    </xsd:key>
+    <xsd:keyref name="launchpadIDREF" refer="launchpadID">
+      <xsd:selector xpath="launches/launch" />
+      <xsd:field xpath="@launchpad_ref" />
+    </xsd:keyref>
+    <xsd:key name="locationID">
+      <xsd:selector xpath="locations/location" />
+      <xsd:field xpath="@location_id" />
+    </xsd:key>
+    <xsd:keyref name="customerlocationIDREF" refer="locationID">
+      <xsd:selector xpath="c:customers/c:customer/c:contact_info" />
+      <xsd:field xpath="@location_ref" />
+    </xsd:keyref>
+    <xsd:keyref name="launchpadlocationIDREF" refer="locationID">
+      <xsd:selector xpath="l:launchpads/l:launchpad" />
+      <xsd:field xpath="@location_ref" />
+    </xsd:keyref>
+    <xsd:key name="launchID">
+      <xsd:selector xpath="launches/launch" />
+      <xsd:field xpath="@launch_id" />
+    </xsd:key>
+  </xsd:element>
+  <xsd:attributeGroup name="launchattr">
+    <xsd:attribute name="launch_id" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="lan_[0-9]*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="launchpad_ref" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="lp_[0-9]*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="customer_ref" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="cst_[0-9]*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="payload_ref" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="pal_[0-9]*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+    <xsd:attribute name="rocket_ref" use="required">
+      <xsd:simpleType>
+        <xsd:restriction base="xsd:string">
+          <xsd:pattern value="roc_[0-9]*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:attribute>
+  </xsd:attributeGroup>
+  <xsd:element name="capsule" type="xsd:string" />
+  <xsd:element name="sattelite" type="xsd:string" />
+  <xsd:element name="cargo" type="xsd:string" />
+</xsd:schema>

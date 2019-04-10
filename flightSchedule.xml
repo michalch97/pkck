@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet href="flightSchedule.css"?>
-<!DOCTYPE flight_schedule SYSTEM "flightSchedule.dtd">
-<flight_schedule>
+<flight_schedule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="flightSchedule.xsd">
     <authors>
         <author>
             <first_name>Michał</first_name>
@@ -39,73 +38,73 @@
             <cost currency="$">106000000</cost>
         </launch>
     </launches>
-    <launchpads>
-        <launchpad launchpad_id="lp_1" location_ref="loc_1">
-            <name>LC-39A</name>
-        </launchpad>
-        <launchpad launchpad_id="lp_2" location_ref="loc_3">
-            <name>SLC-4E</name>
-        </launchpad>
-        <launchpad launchpad_id="lp_3" location_ref="loc_6">
-            <name>ELA-3</name>
-        </launchpad>
-    </launchpads>
-    <customers>
-        <customer customer_id="cst_1">
-            <name>NASA</name>
-            <contact_info location_ref="loc_5">
-                <phone_number>234234234</phone_number>
-            </contact_info>
-        </customer>
-        <customer customer_id="cst_2">
-            <name>Eutelsat</name>
-            <contact_info location_ref="loc_2">
-                <phone_number>342342342</phone_number>
-            </contact_info>
-        </customer>
-        <customer customer_id="cst_3">
-            <name>Iridium Communications</name>
-            <contact_info location_ref="loc_4">
-                <phone_number>342342342</phone_number>
-            </contact_info>
-        </customer>
-        <customer customer_id="cst_4">
-            <name>DirecTV</name>
-            <contact_info location_ref="loc_7">
-                <phone_number>842446242</phone_number>
-            </contact_info>
-        </customer>
-    </customers>
-    <rockets>
-        <rocket rocket_id="roc_1">
-            <name>Falcon 9</name>
-            <mass unit="kg">549054</mass>
-            <thrust unit="N">7607000</thrust>
-            <payload_capacity unit="kg">22800</payload_capacity>
-            <cost currency="$">50000000</cost>
-        </rocket>
-        <rocket rocket_id="roc_2">
-            <name >Falcon Heavy</name>
-            <mass unit="kg">1420788</mass>
-            <thrust unit="N">22800000</thrust>
-            <payload_capacity unit="kg">63800</payload_capacity>
-            <cost currency="$">150000000</cost>
-        </rocket>
-        <rocket rocket_id="roc_3">
-            <name>Delta IV</name>
-            <mass unit="kg">733400</mass>
-            <thrust unit="N">9420000</thrust>
-            <payload_capacity unit="kg">26790</payload_capacity>
-            <cost currency="$">224000000</cost>
-        </rocket>
-        <rocket rocket_id="roc_4">
-            <name>Ariane 5</name>
-            <mass unit="kg">777000</mass>
-            <thrust unit="N">15120000</thrust>
-            <payload_capacity unit="kg">16000</payload_capacity>
-            <cost currency="$">220000000</cost>
-        </rocket>
-    </rockets>
+    <l:launchpads xmlns:l="http://example.com/launchpads">
+        <l:launchpad launchpad_id="lp_1" location_ref="loc_1">
+            <l:name>LC-39A</l:name>
+        </l:launchpad>
+        <l:launchpad launchpad_id="lp_2" location_ref="loc_3">
+            <l:name>SLC-4E</l:name>
+        </l:launchpad>
+        <l:launchpad launchpad_id="lp_3" location_ref="loc_6">
+            <l:name>ELA-3</l:name>
+        </l:launchpad>
+    </l:launchpads>
+    <c:customers xmlns:c="http://example.com/customers">
+        <c:customer customer_id="cst_1">
+            <c:name>NASA</c:name>
+            <c:contact_info location_ref="loc_5">
+                <c:phone_number>234-234-234</c:phone_number>
+            </c:contact_info>
+        </c:customer>
+        <c:customer customer_id="cst_2">
+            <c:name>Eutelsat</c:name>
+            <c:contact_info location_ref="loc_2">
+                <c:phone_number>342-342-342</c:phone_number>
+            </c:contact_info>
+        </c:customer>
+        <c:customer customer_id="cst_3">
+            <c:name>Iridium Communications</c:name>
+            <c:contact_info location_ref="loc_4">
+                <c:phone_number>342-342-342</c:phone_number>
+            </c:contact_info>
+        </c:customer>
+        <c:customer customer_id="cst_4">
+            <c:name>DirecTV</c:name>
+            <c:contact_info location_ref="loc_7">
+                <c:phone_number>842-446-242</c:phone_number>
+            </c:contact_info>
+        </c:customer>
+    </c:customers>
+    <r:rockets xmlns:r="http://example.com/rockets">
+        <r:rocket rocket_id="roc_1">
+            <r:name>Falcon 9</r:name>
+            <r:mass unit="kg">549054</r:mass>
+            <r:thrust unit="N">7607000</r:thrust>
+            <r:payload_capacity unit="kg">22800</r:payload_capacity>
+            <r:cost currency="$">50000000</r:cost>
+        </r:rocket>
+        <r:rocket rocket_id="roc_2">
+            <r:name >Falcon Heavy</r:name>
+            <r:mass unit="kg">1420788</r:mass>
+            <r:thrust unit="N">22800000</r:thrust>
+            <r:payload_capacity unit="kg">63800</r:payload_capacity>
+            <r:cost currency="$">150000000</r:cost>
+        </r:rocket>
+        <r:rocket rocket_id="roc_3">
+            <r:name>Delta IV</r:name>
+            <r:mass unit="kg">733400</r:mass>
+            <r:thrust unit="N">9420000</r:thrust>
+            <r:payload_capacity unit="kg">26790</r:payload_capacity>
+            <r:cost currency="$">224000000</r:cost>
+        </r:rocket>
+        <r:rocket rocket_id="roc_4">
+            <r:name>Ariane 5</r:name>
+            <r:mass unit="kg">777000</r:mass>
+            <r:thrust unit="N">15120000</r:thrust>
+            <r:payload_capacity unit="kg">16000</r:payload_capacity>
+            <r:cost currency="$">220000000</r:cost>
+        </r:rocket>
+    </r:rockets>
     <payloads>
         <payload payload_id="pal_1">
             <payload_type>
@@ -148,6 +147,12 @@
                 <sattelite>Galileo FOC 7</sattelite>
             </payload_type>
             <mass unit="kg">3375</mass>
+        </payload>
+        <payload payload_id="pal_8">
+            <payload_type>
+                <capsule>Dragon 2</capsule>
+            </payload_type>
+            <mass unit="kg">4200</mass>
         </payload>
     </payloads>
     <locations>
