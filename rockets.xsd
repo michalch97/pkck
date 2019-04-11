@@ -47,7 +47,7 @@
             <xsd:attribute name="rocket_id" use="required">
               <xsd:simpleType>
                 <xsd:restriction base="xsd:string">
-                  <xsd:pattern value="roc_[0-9]*" />
+                  <xsd:pattern value="roc_[0-9]+" />
                 </xsd:restriction>
               </xsd:simpleType>
             </xsd:attribute>

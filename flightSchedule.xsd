@@ -13,7 +13,7 @@
                 <xsd:complexType>
                   <xsd:sequence>
                     <xsd:element name="first_name" type="xsd:string" />
-                    <xsd:element name="surename" type="xsd:string" />
+                    <xsd:element name="surname" type="xsd:string" />
                   </xsd:sequence>
                 </xsd:complexType>
               </xsd:element>
@@ -57,7 +57,7 @@
                       <xsd:complexType>
                         <xsd:choice>
                           <xsd:element ref="capsule" />
-                          <xsd:element ref="sattelite" />
+                          <xsd:element ref="satellite" />
                           <xsd:element ref="cargo" />
                         </xsd:choice>
                       </xsd:complexType>
@@ -75,7 +75,7 @@
                   <xsd:attribute name="payload_id" use="required">
                     <xsd:simpleType>
                       <xsd:restriction base="xsd:string">
-                        <xsd:pattern value="pal_[0-9]*" />
+                        <xsd:pattern value="pal_[0-9]+" />
                       </xsd:restriction>
                     </xsd:simpleType>
                   </xsd:attribute>
@@ -94,7 +94,7 @@
                       <xsd:attribute name="location_id" use="required">
                         <xsd:simpleType>
                           <xsd:restriction base="xsd:ID">
-                            <xsd:pattern value="loc_[0-9]*" />
+                            <xsd:pattern value="loc_[0-9]+" />
                           </xsd:restriction>
                         </xsd:simpleType>
                       </xsd:attribute>
@@ -160,40 +160,40 @@
     <xsd:attribute name="launch_id" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
-          <xsd:pattern value="lan_[0-9]*" />
+          <xsd:pattern value="lan_[0-9]+" />
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
     <xsd:attribute name="launchpad_ref" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
-          <xsd:pattern value="lp_[0-9]*" />
+          <xsd:pattern value="lp_[0-9]+" />
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
     <xsd:attribute name="customer_ref" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
-          <xsd:pattern value="cst_[0-9]*" />
+          <xsd:pattern value="cst_[0-9]+" />
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
     <xsd:attribute name="payload_ref" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
-          <xsd:pattern value="pal_[0-9]*" />
+          <xsd:pattern value="pal_[0-9]+" />
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
     <xsd:attribute name="rocket_ref" use="required">
       <xsd:simpleType>
         <xsd:restriction base="xsd:string">
-          <xsd:pattern value="roc_[0-9]*" />
+          <xsd:pattern value="roc_[0-9]+" />
         </xsd:restriction>
       </xsd:simpleType>
     </xsd:attribute>
   </xsd:attributeGroup>
   <xsd:element name="capsule" type="xsd:string" />
-  <xsd:element name="sattelite" type="xsd:string" />
+  <xsd:element name="satellite" type="xsd:string" />
   <xsd:element name="cargo" type="xsd:string" />
 </xsd:schema>

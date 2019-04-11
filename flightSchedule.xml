@@ -4,11 +4,11 @@
     <authors>
         <author>
             <first_name>Michał</first_name>
-            <surename>Chmielewski</surename>
+            <surname>Chmielewski</surname>
         </author>
         <author>
             <first_name>Bartłomiej</first_name>
-            <surename>Ciesielski</surename>
+            <surname>Ciesielski</surname>
         </author>
     </authors>
     <description>Harmonogram lotów kosmicznych</description>
@@ -126,25 +126,25 @@
         </payload>
         <payload payload_id="pal_4">
             <payload_type>
-                <sattelite>Eutelsat 117 West</sattelite>
+                <satellite>Eutelsat 117 West</satellite>
             </payload_type>
             <mass unit="kg">3600</mass>
         </payload>
         <payload payload_id="pal_5">
             <payload_type>
-                <sattelite>Iridium NEXT-1</sattelite>
+                <satellite>Iridium NEXT-1</satellite>
             </payload_type>
             <mass unit="kg">9600</mass>
         </payload>
         <payload payload_id="pal_6">
             <payload_type>
-                <sattelite>DirecTV-14</sattelite>
+                <satellite>DirecTV-14</satellite>
             </payload_type>
             <mass unit="kg">9600</mass>
         </payload>
         <payload payload_id="pal_7">
             <payload_type>
-                <sattelite>Galileo FOC 7</sattelite>
+                <satellite>Galileo FOC 7</satellite>
             </payload_type>
             <mass unit="kg">3375</mass>
         </payload>
