@@ -3,52 +3,56 @@
   <xsd:element name="rockets">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="rocket" maxOccurs="unbounded" minOccurs="0">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="name" type="xsd:string" />
-              <xsd:element name="mass">
-                <xsd:complexType>
-                  <xsd:simpleContent>
-                    <xsd:extension base="xsd:nonNegativeInteger">
-                      <xsd:attribute name="unit" type="xsd:string" use="required" />
-                    </xsd:extension>
-                  </xsd:simpleContent>
-                </xsd:complexType>
-              </xsd:element>
-              <xsd:element name="thrust" minOccurs="0">
-                <xsd:complexType>
-                  <xsd:simpleContent>
-                    <xsd:extension base="xsd:nonNegativeInteger">
-                      <xsd:attribute name="unit" type="xsd:string" use="required" />
-                    </xsd:extension>
-                  </xsd:simpleContent>
-                </xsd:complexType>
-              </xsd:element>
-              <xsd:element name="payload_capacity">
-                <xsd:complexType>
-                  <xsd:simpleContent>
-                   <xsd:extension base="xsd:nonNegativeInteger">
-                     <xsd:attribute name="unit" type="xsd:string" use="required" />
-                   </xsd:extension>
-                 </xsd:simpleContent>
-                </xsd:complexType>
-              </xsd:element>
-              <xsd:element name="cost">
-                <xsd:complexType>
-                  <xsd:simpleContent>
-                    <xsd:extension base="xsd:nonNegativeInteger">
-                      <xsd:attribute name="currency" type="xsd:string" use="required" />
-                    </xsd:extension>
-                  </xsd:simpleContent>
-                </xsd:complexType>
-              </xsd:element>
-            </xsd:sequence>
-              <xsd:attribute name="rocket_id" use="required" type="r:rocket_pattern">
-            </xsd:attribute>
-          </xsd:complexType>
-        </xsd:element>
+        <xsd:element ref="rocket" maxOccurs="unbounded" minOccurs="0"/>
       </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="rocket">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string" />
+        <xsd:element ref="mass"/>
+        <xsd:element ref="thrust" minOccurs="0"/>
+        <xsd:element ref="payload_capacity"/>
+        <xsd:element ref="cost"/>
+      </xsd:sequence>
+      <xsd:attribute name="rocket_id" use="required" type="r:rocket_pattern"/>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="mass">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:nonNegativeInteger">
+          <xsd:attribute name="unit" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="thrust">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:nonNegativeInteger">
+          <xsd:attribute name="unit" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="payload_capacity">
+    <xsd:complexType>
+      <xsd:simpleContent>
+       <xsd:extension base="xsd:nonNegativeInteger">
+         <xsd:attribute name="unit" type="xsd:string" use="required" />
+       </xsd:extension>
+     </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="cost">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:nonNegativeInteger">
+          <xsd:attribute name="currency" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:simpleContent>
     </xsd:complexType>
   </xsd:element>
   <xsd:simpleType name="rocket_pattern">

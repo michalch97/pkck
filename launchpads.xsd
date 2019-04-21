@@ -3,18 +3,17 @@
   <xsd:element name="launchpads">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="launchpad" maxOccurs="unbounded" minOccurs="0">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="name" type="xsd:string" />
-            </xsd:sequence>
-            <xsd:attribute name="launchpad_id" use="required" type="l:launchpad_pattern">
-            </xsd:attribute>
-            <xsd:attribute name="location_ref" use="required" type="l:location_pattern">
-            </xsd:attribute>
-          </xsd:complexType>
-        </xsd:element>
+        <xsd:element ref="launchpad" maxOccurs="unbounded" minOccurs="0"/>
       </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="launchpad">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="name" type="xsd:string" />
+      </xsd:sequence>
+      <xsd:attribute name="launchpad_id" use="required" type="l:launchpad_pattern"/>
+      <xsd:attribute name="location_ref" use="required" type="l:location_pattern"/>
     </xsd:complexType>
   </xsd:element>
   <xsd:simpleType name="launchpad_pattern">
