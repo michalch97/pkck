@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsd:schema xmlns:c="http://example.com/customers" elementFormDefault="qualified" targetNamespace="http://example.com/customers" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:schema xmlns:c="http://example.com/customers" xmlns:l="http://example.com/launchpads" elementFormDefault="qualified" targetNamespace="http://example.com/customers" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <xsd:import schemaLocation="launchpads.xsd" namespace="http://example.com/launchpads" />
   <xsd:element name="customers">
     <xsd:complexType>
       <xsd:sequence>
@@ -8,12 +9,7 @@
             <xsd:sequence>
               <xsd:group ref="c:customer_group" />
             </xsd:sequence>
-            <xsd:attribute name="customer_id" use="required">
-              <xsd:simpleType>
-                <xsd:restriction base="xsd:string">
-                  <xsd:pattern value="cst_[0-9]+" />
-                </xsd:restriction>
-              </xsd:simpleType>
+              <xsd:attribute name="customer_id" use="required" type="c:customer_pattern">
             </xsd:attribute>
           </xsd:complexType>
         </xsd:element>
@@ -34,15 +30,15 @@
               </xsd:simpleType>
             </xsd:element>
           </xsd:sequence>
-          <xsd:attribute name="location_ref" use="required">
-            <xsd:simpleType>
-              <xsd:restriction base="xsd:string">
-                <xsd:pattern value="loc_[0-9]+" />
-              </xsd:restriction>
-            </xsd:simpleType>
+          <xsd:attribute name="location_ref" use="required" type="l:location_pattern">
           </xsd:attribute>
         </xsd:complexType>
       </xsd:element>
     </xsd:sequence>
   </xsd:group>
+  <xsd:simpleType name="customer_pattern">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="cst_[0-9]+" />
+    </xsd:restriction>
+  </xsd:simpleType>
 </xsd:schema>
