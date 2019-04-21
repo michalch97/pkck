@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <?xml-stylesheet href="flightSchedule.css"?>
-<flight_schedule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="flightSchedule.xsd">
+<flight_schedule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:r="http://example.com/rockets" xmlns:l="http://example.com/launchpads" xmlns:c="http://example.com/customers" xsi:noNamespaceSchemaLocation="flightSchedule.xsd">
     <authors>
         <author>
             <first_name>Michał</first_name>
@@ -38,7 +38,7 @@
             <cost currency="$">106000000</cost>
         </launch>
     </launches>
-    <l:launchpads xmlns:l="http://example.com/launchpads">
+    <l:launchpads>
         <l:launchpad launchpad_id="lp_1" location_ref="loc_1">
             <l:name>LC-39A</l:name>
         </l:launchpad>
@@ -49,7 +49,7 @@
             <l:name>ELA-3</l:name>
         </l:launchpad>
     </l:launchpads>
-    <c:customers xmlns:c="http://example.com/customers">
+    <c:customers>
         <c:customer customer_id="cst_1">
             <c:name>NASA</c:name>
             <c:contact_info location_ref="loc_5">
@@ -75,7 +75,7 @@
             </c:contact_info>
         </c:customer>
     </c:customers>
-    <r:rockets xmlns:r="http://example.com/rockets">
+    <r:rockets>
         <r:rocket rocket_id="roc_1">
             <r:name>Falcon 9</r:name>
             <r:mass unit="kg">549054</r:mass>

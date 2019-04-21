@@ -6,86 +6,14 @@
   <xsd:element name="flight_schedule">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element name="authors" maxOccurs="1" minOccurs="1">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="author" maxOccurs="2" minOccurs="2">
-                <xsd:complexType>
-                  <xsd:sequence>
-                    <xsd:element name="first_name" type="xsd:string" />
-                    <xsd:element name="surname" type="xsd:string" />
-                  </xsd:sequence>
-                </xsd:complexType>
-              </xsd:element>
-            </xsd:sequence>
-          </xsd:complexType>
-        </xsd:element>
+        <xsd:element ref="authors"  maxOccurs="1" minOccurs="1"/>
         <xsd:element name="description" type="xsd:string" />
-        <xsd:element name="launches">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="launch" maxOccurs="unbounded" minOccurs="0">
-                <xsd:complexType>
-                  <xsd:sequence>
-                    <xsd:element name="launch_date" type="xsd:dateTime" />
-                    <xsd:element name="cost">
-                      <xsd:complexType>
-                        <xsd:simpleContent>
-                          <xsd:extension base="xsd:nonNegativeInteger">
-                            <xsd:attribute name="currency" type="xsd:string" use="required" />
-                          </xsd:extension>
-                        </xsd:simpleContent>
-                      </xsd:complexType>
-                    </xsd:element>
-                  </xsd:sequence>
-                  <xsd:attributeGroup ref="launchattr" />
-                </xsd:complexType>
-              </xsd:element>
-            </xsd:sequence>
-          </xsd:complexType>
-        </xsd:element>
+        <xsd:element ref="launches"/>
         <xsd:element ref="l:launchpads"/>
         <xsd:element ref="c:customers"/>
         <xsd:element ref="r:rockets" />
-        <xsd:element name="payloads">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="payload" maxOccurs="unbounded" minOccurs="0">
-                <xsd:complexType>
-                  <xsd:sequence>
-                    <xsd:element name="payload_type">
-                      <xsd:complexType>
-                        <xsd:choice>
-                          <xsd:element ref="capsule" />
-                          <xsd:element ref="satellite" />
-                          <xsd:element ref="cargo" />
-                        </xsd:choice>
-                      </xsd:complexType>
-                    </xsd:element>
-                    <xsd:element ref="mass" />
-                  </xsd:sequence>
-                  <xsd:attribute name="payload_id" use="required" type="payload_pattern">
-                  </xsd:attribute>
-                </xsd:complexType>
-              </xsd:element>
-            </xsd:sequence>
-          </xsd:complexType>
-        </xsd:element>
-        <xsd:element name="locations">
-          <xsd:complexType>
-            <xsd:sequence>
-              <xsd:element name="location" maxOccurs="unbounded" minOccurs="0">
-                <xsd:complexType>
-                  <xsd:simpleContent>
-                    <xsd:extension base="xsd:string">
-                      <xsd:attribute name="location_id" use="required" type="l:location_pattern"/>
-                    </xsd:extension>
-                  </xsd:simpleContent>
-                </xsd:complexType>
-              </xsd:element>
-            </xsd:sequence>
-          </xsd:complexType>
-        </xsd:element>
+        <xsd:element ref="payloads"/>
+        <xsd:element ref="locations"/>
       </xsd:sequence>
     </xsd:complexType>
     <xsd:key name="customerID">
@@ -136,6 +64,88 @@
       <xsd:selector xpath="launches/launch" />
       <xsd:field xpath="@launch_id" />
     </xsd:key>
+  </xsd:element>
+  <xsd:element name="authors">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="author" maxOccurs="2" minOccurs="2"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="author">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="first_name" type="xsd:string" />
+        <xsd:element name="surname" type="xsd:string" />
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="launches">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="launch" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="launch" >
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="launch_date" type="xsd:dateTime" />
+        <xsd:element ref="cost"/>
+      </xsd:sequence>
+      <xsd:attributeGroup ref="launchattr" />
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="cost">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:nonNegativeInteger">
+          <xsd:attribute name="currency" type="xsd:string" use="required" />
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="payloads">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="payload" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="payload">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="payload_type"/>
+        <xsd:element ref="mass" />
+      </xsd:sequence>
+      <xsd:attribute name="payload_id" use="required" type="payload_pattern">
+      </xsd:attribute>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="payload_type">
+    <xsd:complexType>
+      <xsd:choice>
+        <xsd:element ref="capsule" />
+        <xsd:element ref="satellite" />
+        <xsd:element ref="cargo" />
+      </xsd:choice>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="locations">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element ref="location" maxOccurs="unbounded" minOccurs="0"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="location">
+    <xsd:complexType>
+      <xsd:simpleContent>
+        <xsd:extension base="xsd:string">
+          <xsd:attribute name="location_id" use="required" type="l:location_pattern"/>
+        </xsd:extension>
+      </xsd:simpleContent>
+    </xsd:complexType>
   </xsd:element>
   <xsd:attributeGroup name="launchattr">
     <xsd:attribute name="launch_id" use="required" type="launch_pattern" />
