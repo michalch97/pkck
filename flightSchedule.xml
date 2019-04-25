@@ -15,27 +15,27 @@
     <launches>
         <launch launch_id="lan_1" launchpad_ref="lp_1" customer_ref="cst_1" payload_ref="pal_1" rocket_ref="roc_1">
             <launch_date>2014-08-19T16:24:05Z</launch_date>
-            <cost currency="$">86000000</cost>
+            <r:cost currency="USD">86000000</r:cost>
         </launch>
         <launch launch_id="lan_2" launchpad_ref="lp_1" customer_ref="cst_2" payload_ref="pal_4" rocket_ref="roc_1">
             <launch_date>2016-07-15T14:29:09Z</launch_date>
-            <cost currency="$">96000000</cost>
+            <r:cost currency="USD">96000000</r:cost>
         </launch>
         <launch launch_id="lan_3" launchpad_ref="lp_2" customer_ref="cst_3" payload_ref="pal_5" rocket_ref="roc_1">
             <launch_date>2017-01-14T17:54:21Z</launch_date>
-            <cost currency="$">107000000</cost>
+            <r:cost currency="USD">107000000</r:cost>
         </launch>
         <launch launch_id="lan_4" launchpad_ref="lp_3" customer_ref="cst_3" payload_ref="pal_6" rocket_ref="roc_4">
             <launch_date>2014-12-06T20:40:07Z</launch_date>
-            <cost currency="$">123000000</cost>
+            <r:cost currency="USD">123000000</r:cost>
         </launch>
         <launch launch_id="lan_5" launchpad_ref="lp_1" customer_ref="cst_1" payload_ref="pal_2" rocket_ref="roc_3">
             <launch_date>2016-10-17T23:45:22Z</launch_date>
-            <cost currency="$">762000000</cost>
+            <r:cost currency="USD">762000000</r:cost>
         </launch>
         <launch launch_id="lan_6" launchpad_ref="lp_3" customer_ref="cst_3" payload_ref="pal_7" rocket_ref="roc_4">
             <launch_date>2014-12-06T20:40:07Z</launch_date>
-            <cost currency="$">106000000</cost>
+            <r:cost currency="USD">106000000</r:cost>
         </launch>
     </launches>
     <l:launchpads>
@@ -81,28 +81,28 @@
             <r:mass unit="kg">549054</r:mass>
             <r:thrust unit="N">7607000</r:thrust>
             <r:payload_capacity unit="kg">22800</r:payload_capacity>
-            <r:cost currency="$">50000000</r:cost>
+            <r:cost currency="USD">50000000</r:cost>
         </r:rocket>
         <r:rocket rocket_id="roc_2">
             <r:name >Falcon Heavy</r:name>
             <r:mass unit="kg">1420788</r:mass>
             <r:thrust unit="N">22800000</r:thrust>
             <r:payload_capacity unit="kg">63800</r:payload_capacity>
-            <r:cost currency="$">150000000</r:cost>
+            <r:cost currency="USD">150000000</r:cost>
         </r:rocket>
         <r:rocket rocket_id="roc_3">
             <r:name>Delta IV</r:name>
             <r:mass unit="kg">733400</r:mass>
             <r:thrust unit="N">9420000</r:thrust>
             <r:payload_capacity unit="kg">26790</r:payload_capacity>
-            <r:cost currency="$">224000000</r:cost>
+            <r:cost currency="USD">224000000</r:cost>
         </r:rocket>
         <r:rocket rocket_id="roc_4">
             <r:name>Ariane 5</r:name>
             <r:mass unit="kg">777000</r:mass>
             <r:thrust unit="N">15120000</r:thrust>
             <r:payload_capacity unit="kg">16000</r:payload_capacity>
-            <r:cost currency="$">220000000</r:cost>
+            <r:cost currency="USD">220000000</r:cost>
         </r:rocket>
     </r:rockets>
     <payloads>
@@ -110,49 +110,49 @@
             <payload_type>
                 <capsule>Dragon 2</capsule>
             </payload_type>
-            <mass unit="kg">4200</mass>
+            <r:mass unit="kg">4200</r:mass>
         </payload>
         <payload payload_id="pal_2">
             <payload_type>
                 <cargo>Cygnus</cargo>
             </payload_type>
-            <mass unit="kg">3750</mass>
+            <r:mass unit="kg">3750</r:mass>
         </payload>
         <payload payload_id="pal_3">
             <payload_type>
                 <cargo>Progress</cargo>
             </payload_type>
-            <mass unit="kg">7100</mass>
+            <r:mass unit="kg">7100</r:mass>
         </payload>
         <payload payload_id="pal_4">
             <payload_type>
                 <satellite>Eutelsat 117 West</satellite>
             </payload_type>
-            <mass unit="kg">3600</mass>
+            <r:mass unit="kg">3600</r:mass>
         </payload>
         <payload payload_id="pal_5">
             <payload_type>
                 <satellite>Iridium NEXT-1</satellite>
             </payload_type>
-            <mass unit="kg">9600</mass>
+            <r:mass unit="kg">9600</r:mass>
         </payload>
         <payload payload_id="pal_6">
             <payload_type>
                 <satellite>DirecTV-14</satellite>
             </payload_type>
-            <mass unit="kg">9600</mass>
+            <r:mass unit="lbs">9600</r:mass>
         </payload>
         <payload payload_id="pal_7">
             <payload_type>
                 <satellite>Galileo FOC 7</satellite>
             </payload_type>
-            <mass unit="kg">3375</mass>
+            <r:mass unit="kg">3375</r:mass>
         </payload>
         <payload payload_id="pal_8">
             <payload_type>
                 <capsule>Dragon 2</capsule>
             </payload_type>
-            <mass unit="kg">4200</mass>
+            <r:mass unit="kg">4200</r:mass>
         </payload>
     </payloads>
     <locations>

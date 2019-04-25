@@ -22,8 +22,8 @@
   <xsd:element name="mass">
     <xsd:complexType>
       <xsd:simpleContent>
-        <xsd:extension base="xsd:nonNegativeInteger">
-          <xsd:attribute name="unit" type="xsd:string" use="required" />
+        <xsd:extension base="xsd:short">
+          <xsd:attribute name="unit" type="mass_unit_type" use="required" />
         </xsd:extension>
       </xsd:simpleContent>
     </xsd:complexType>
@@ -32,7 +32,7 @@
     <xsd:complexType>
       <xsd:simpleContent>
         <xsd:extension base="xsd:nonNegativeInteger">
-          <xsd:attribute name="unit" type="xsd:string" use="required" />
+          <xsd:attribute name="unit" type="force_unit_type" use="required" />
         </xsd:extension>
       </xsd:simpleContent>
     </xsd:complexType>
@@ -41,7 +41,7 @@
     <xsd:complexType>
       <xsd:simpleContent>
        <xsd:extension base="xsd:nonNegativeInteger">
-         <xsd:attribute name="unit" type="xsd:string" use="required" />
+         <xsd:attribute name="unit" type="mass_unit_type" use="required" />
        </xsd:extension>
      </xsd:simpleContent>
     </xsd:complexType>
@@ -50,7 +50,7 @@
     <xsd:complexType>
       <xsd:simpleContent>
         <xsd:extension base="xsd:nonNegativeInteger">
-          <xsd:attribute name="currency" type="xsd:string" use="required" />
+          <xsd:attribute name="currency" type="currency_type" use="required" />
         </xsd:extension>
       </xsd:simpleContent>
     </xsd:complexType>
@@ -60,4 +60,29 @@
       <xsd:pattern value="roc_[0-9]+" />
     </xsd:restriction>
   </xsd:simpleType>
+  <xsd:complexType name="force_unit_type">
+      <xsd:simpleContent>
+          <xsd:restriction base="xsd:string">
+              <xsd:enumeration value="N"/>
+              <xsd:enumeration value="lbf"/>
+          </xsd:restriction>
+      </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="mass_unit_type">
+    <xsd:simpleContent>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="kg"/>
+        <xsd:enumeration value="lbs"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
+  <xsd:complexType name="currency_type">
+    <xsd:simpleContent>
+      <xsd:restriction base="xsd:string">
+        <xsd:enumeration value="USD"/>
+        <xsd:enumeration value="EUR"/>
+        <xsd:enumeration value="PLN"/>
+      </xsd:restriction>
+    </xsd:simpleContent>
+  </xsd:complexType>
 </xsd:schema>

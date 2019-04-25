@@ -91,18 +91,9 @@
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element name="launch_date" type="xsd:dateTime" />
-        <xsd:element ref="cost"/>
+        <xsd:element ref="r:cost"/>
       </xsd:sequence>
       <xsd:attributeGroup ref="launchattr" />
-    </xsd:complexType>
-  </xsd:element>
-  <xsd:element name="cost">
-    <xsd:complexType>
-      <xsd:simpleContent>
-        <xsd:extension base="xsd:nonNegativeInteger">
-          <xsd:attribute name="currency" type="xsd:string" use="required" />
-        </xsd:extension>
-      </xsd:simpleContent>
     </xsd:complexType>
   </xsd:element>
   <xsd:element name="payloads">
@@ -116,7 +107,7 @@
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element ref="payload_type"/>
-        <xsd:element ref="mass" />
+        <xsd:element ref="r:mass"/>
       </xsd:sequence>
       <xsd:attribute name="payload_id" use="required" type="payload_pattern">
       </xsd:attribute>
@@ -157,15 +148,6 @@
   <xsd:element name="capsule" type="xsd:string" />
   <xsd:element name="satellite" type="xsd:string" />
   <xsd:element name="cargo" type="xsd:string" />
-  <xsd:element name="mass">
-    <xsd:complexType>
-      <xsd:simpleContent>
-        <xsd:extension base="xsd:short">
-          <xsd:attribute name="unit" type="xsd:string" use="required" />
-        </xsd:extension>
-      </xsd:simpleContent>
-    </xsd:complexType>
-  </xsd:element>
   <xsd:element name="author_name">
     <xsd:simpleType>
       <xsd:restriction base="xsd:string">
