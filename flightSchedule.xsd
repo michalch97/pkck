@@ -164,7 +164,7 @@
   </xsd:element>
   <xsd:simpleType name="payload_pattern">
     <xsd:restriction base="xsd:string">
-      <xsd:pattern value="pal_[0-9]+" />
+      <xsd:pattern value="pal_[1-9][0-9]*" />
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="launch_pattern">

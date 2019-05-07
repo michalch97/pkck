@@ -3,7 +3,7 @@
   <xsd:element name="rockets">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element ref="rocket" maxOccurs="unbounded" minOccurs="0"/>
+        <xsd:element ref="r:rocket" maxOccurs="unbounded" minOccurs="0"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
@@ -11,10 +11,10 @@
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element name="name" type="xsd:string" />
-        <xsd:element ref="mass"/>
-        <xsd:element ref="thrust" minOccurs="0"/>
-        <xsd:element ref="payload_capacity"/>
-        <xsd:element ref="cost"/>
+        <xsd:element ref="r:mass"/>
+        <xsd:element ref="r:thrust" minOccurs="0"/>
+        <xsd:element ref="r:payload_capacity"/>
+        <xsd:element ref="r:cost"/>
       </xsd:sequence>
       <xsd:attribute name="rocket_id" use="required" type="r:rocket_pattern"/>
     </xsd:complexType>
@@ -22,8 +22,8 @@
   <xsd:element name="mass">
     <xsd:complexType>
       <xsd:simpleContent>
-        <xsd:extension base="xsd:short">
-          <xsd:attribute name="unit" type="mass_unit_type" use="required" />
+        <xsd:extension base="xsd:nonNegativeInteger">
+          <xsd:attribute name="unit" type="r:mass_unit_type" use="required" />
         </xsd:extension>
       </xsd:simpleContent>
     </xsd:complexType>
@@ -32,7 +32,7 @@
     <xsd:complexType>
       <xsd:simpleContent>
         <xsd:extension base="xsd:nonNegativeInteger">
-          <xsd:attribute name="unit" type="force_unit_type" use="required" />
+          <xsd:attribute name="unit" type="r:force_unit_type" use="required" />
         </xsd:extension>
       </xsd:simpleContent>
     </xsd:complexType>
@@ -41,7 +41,7 @@
     <xsd:complexType>
       <xsd:simpleContent>
        <xsd:extension base="xsd:nonNegativeInteger">
-         <xsd:attribute name="unit" type="mass_unit_type" use="required" />
+         <xsd:attribute name="unit" type="r:mass_unit_type" use="required" />
        </xsd:extension>
      </xsd:simpleContent>
     </xsd:complexType>
@@ -50,7 +50,7 @@
     <xsd:complexType>
       <xsd:simpleContent>
         <xsd:extension base="xsd:nonNegativeInteger">
-          <xsd:attribute name="currency" type="currency_type" use="required" />
+          <xsd:attribute name="currency" type="r:currency_type" use="required" />
         </xsd:extension>
       </xsd:simpleContent>
     </xsd:complexType>
@@ -60,29 +60,23 @@
       <xsd:pattern value="roc_[0-9]+" />
     </xsd:restriction>
   </xsd:simpleType>
-  <xsd:complexType name="force_unit_type">
-      <xsd:simpleContent>
+  <xsd:simpleType name="force_unit_type">
           <xsd:restriction base="xsd:string">
               <xsd:enumeration value="N"/>
               <xsd:enumeration value="lbf"/>
           </xsd:restriction>
-      </xsd:simpleContent>
-  </xsd:complexType>
-  <xsd:complexType name="mass_unit_type">
-    <xsd:simpleContent>
+  </xsd:simpleType>
+  <xsd:simpleType name="mass_unit_type">
       <xsd:restriction base="xsd:string">
         <xsd:enumeration value="kg"/>
         <xsd:enumeration value="lbs"/>
       </xsd:restriction>
-    </xsd:simpleContent>
-  </xsd:complexType>
-  <xsd:complexType name="currency_type">
-    <xsd:simpleContent>
+  </xsd:simpleType>
+  <xsd:simpleType name="currency_type">
       <xsd:restriction base="xsd:string">
         <xsd:enumeration value="USD"/>
         <xsd:enumeration value="EUR"/>
         <xsd:enumeration value="PLN"/>
       </xsd:restriction>
-    </xsd:simpleContent>
-  </xsd:complexType>
+  </xsd:simpleType>
 </xsd:schema>

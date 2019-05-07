@@ -3,7 +3,7 @@
   <xsd:element name="launchpads">
     <xsd:complexType>
       <xsd:sequence>
-        <xsd:element ref="launchpad" maxOccurs="unbounded" minOccurs="0"/>
+        <xsd:element ref="l:launchpad" maxOccurs="unbounded" minOccurs="0"/>
       </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
