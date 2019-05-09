@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<customers_report>
+  <authors>
+	<author>
+	  <first_name>Bartłomiej</first_name>
+	  <surname>Ciesielski</surname>
+	</author>
+	<author>
+	  <first_name>Michał</first_name>
+	  <surname>Chmielewski</surname>
+	</author>
+  </authors>
+  <title>
+	<description>Harmonogram lotów kosmicznych</description>
+  </title>
+  <date>
+	<day>9</day>
+	<month>maj</month>
+	<year>2019</year>
+  </date>
+  <customer>
+	<name>NASA</name>
+	<contact_info>
+	  <phone_number>234-234-234</phone_number>
+	  <location>Huston</location>
+	</contact_info>
+	<launches>
+	  <launch>
+		<launch_date>2014-08-19T16:24:05Z</launch_date>
+		<cost currency="USD">86000000</cost>
+		<launchpad>
+		  <name>LC-39A</name>
+		  <location>Florida</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<capsule>Dragon 2</capsule>
+		  </payload_type>
+		  <mass unit="kg">4200</mass>
+		</payload>
+		<rocket>
+		  <name>Falcon 9</name>
+		  <mass unit="kg">549054</mass>
+		  <thrust unit="N">7607000</thrust>
+		  <payload_capacity unit="kg">22800</payload_capacity>
+		  <cost currency="USD">50000000</cost>
+		</rocket>
+	  </launch>
+	  <launch>
+		<launch_date>2016-10-17T23:45:22Z</launch_date>
+		<cost currency="USD">762000000</cost>
+		<launchpad>
+		  <name>LC-39A</name>
+		  <location>Florida</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<cargo>Cygnus</cargo>
+		  </payload_type>
+		  <mass unit="kg">3750</mass>
+		</payload>
+		<rocket>
+		  <name>Delta IV</name>
+		  <mass unit="kg">733400</mass>
+		  <thrust unit="N">9420000</thrust>
+		  <payload_capacity unit="kg">26790</payload_capacity>
+		  <cost currency="USD">224000000</cost>
+		</rocket>
+	  </launch>
+	</launches>
+	<costs>
+	  <total_launch_cost currency="USD">848000000</total_launch_cost>
+	</costs>
+  </customer>
+  <customer>
+	<name>Eutelsat</name>
+	<contact_info>
+	  <phone_number>342-342-342</phone_number>
+	  <location>Paris</location>
+	</contact_info>
+	<launches>
+	  <launch>
+		<launch_date>2016-07-15T14:29:09Z</launch_date>
+		<cost currency="USD">96000000</cost>
+		<launchpad>
+		  <name>LC-39A</name>
+		  <location>Florida</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<satellite>Eutelsat 117 West</satellite>
+		  </payload_type>
+		  <mass unit="kg">3600</mass>
+		</payload>
+		<rocket>
+		  <name>Falcon 9</name>
+		  <mass unit="kg">549054</mass>
+		  <thrust unit="N">7607000</thrust>
+		  <payload_capacity unit="kg">22800</payload_capacity>
+		  <cost currency="USD">50000000</cost>
+		</rocket>
+	  </launch>
+	</launches>
+	<costs>
+	  <total_launch_cost currency="USD">96000000</total_launch_cost>
+	</costs>
+  </customer>
+  <customer>
+	<name>Iridium Communications</name>
+	<contact_info>
+	  <phone_number>342-342-342</phone_number>
+	  <location>McLean</location>
+	</contact_info>
+	<launches>
+	  <launch>
+		<launch_date>2017-01-14T17:54:21Z</launch_date>
+		<cost currency="USD">107000000</cost>
+		<launchpad>
+		  <name>SLC-4E</name>
+		  <location>California</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<satellite>Iridium NEXT-1</satellite>
+		  </payload_type>
+		  <mass unit="kg">9600</mass>
+		</payload>
+		<rocket>
+		  <name>Falcon 9</name>
+		  <mass unit="kg">549054</mass>
+		  <thrust unit="N">7607000</thrust>
+		  <payload_capacity unit="kg">22800</payload_capacity>
+		  <cost currency="USD">50000000</cost>
+		</rocket>
+	  </launch>
+	  <launch>
+		<launch_date>2014-12-06T20:40:07Z</launch_date>
+		<cost currency="USD">123000000</cost>
+		<launchpad>
+		  <name>ELA-3</name>
+		  <location>Kourou</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<satellite>DirecTV-14</satellite>
+		  </payload_type>
+		  <mass unit="lbs">9600</mass>
+		</payload>
+		<rocket>
+		  <name>Ariane 5</name>
+		  <mass unit="kg">777000</mass>
+		  <thrust unit="N">15120000</thrust>
+		  <payload_capacity unit="kg">16000</payload_capacity>
+		  <cost currency="USD">220000000</cost>
+		</rocket>
+	  </launch>
+	  <launch>
+		<launch_date>2014-12-06T20:40:07Z</launch_date>
+		<cost currency="USD">106000000</cost>
+		<launchpad>
+		  <name>ELA-3</name>
+		  <location>Kourou</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<satellite>Galileo FOC 7</satellite>
+		  </payload_type>
+		  <mass unit="kg">3375</mass>
+		</payload>
+		<rocket>
+		  <name>Ariane 5</name>
+		  <mass unit="kg">777000</mass>
+		  <thrust unit="N">15120000</thrust>
+		  <payload_capacity unit="kg">16000</payload_capacity>
+		  <cost currency="USD">220000000</cost>
+		</rocket>
+	  </launch>
+	</launches>
+	<costs>
+	  <total_launch_cost currency="USD">336000000</total_launch_cost>
+	</costs>
+  </customer>
+  <customer>
+	<name>DirecTV</name>
+	<contact_info>
+	  <phone_number>842-446-242</phone_number>
+	  <location>El Segundo</location>
+	</contact_info>
+	<launches />
+	<costs />
+  </customer>
+</customers_report>
