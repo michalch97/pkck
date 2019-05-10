@@ -20,7 +20,6 @@
   <xsl:template match="/flight_schedule/description">
     <title>
       <xsl:copy-of select="." />
-    </title>
     <date>
       <xsl:variable name="date">
         <xsl:value-of select="current-dateTime()"/>
@@ -39,6 +38,7 @@
         <xsl:value-of select="substring($date, 1, 4)" />
       </year>
     </date>
+    </title>
   </xsl:template>
 
   <xsl:template match="/flight_schedule/customers/customer">
