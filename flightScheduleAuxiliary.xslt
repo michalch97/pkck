@@ -47,55 +47,22 @@
       <contact_info>
         <xsl:copy-of select="./contact_info/phone_number" />
         <location>
-          <xsl:variable name="location_ref">
-            <xsl:value-of select="./contact_info/@location_ref" />
-          </xsl:variable>
-          <xsl:apply-templates select="/flight_schedule/locations/location[@location_id = $location_ref]" />
+          <xsl:value-of select="key('location',./contact_info/@location_ref)/." />
         </location>
       </contact_info>
       <launches>
         <xsl:variable name="customer_id">
           <xsl:value-of select="@customer_id" />
         </xsl:variable>
-        <xsl:apply-templates select="/flight_schedule/launches/launch[@customer_ref = $customer_id]" />
+        <xsl:apply-templates select="/flight_schedule/launches/launch[@customer_ref = $customer_id]" >
+        <xsl:sort select="launch_date" data-type="text" order="ascending" />
+        </xsl:apply-templates>
       </launches>
-      <costs>
-        <xsl:call-template name="getCosts">
-          <xsl:with-param name="id" select="@customer_id" />
-        </xsl:call-template>
-      </costs>
+      <xsl:call-template name="getCosts">
+        <xsl:with-param name="id" select="@customer_id" />
+      </xsl:call-template>
     </customer>
   </xsl:template>
-
-  <xsl:template name="getCosts">
-    <xsl:param name="id"/>
-    <xsl:for-each-group select="/flight_schedule/launches/launch[@customer_ref = $id]/cost" group-by="@currency">
-      <total_launch_cost currency="{./@currency}">
-        <xsl:call-template name="add">
-          <xsl:with-param name="c">
-           <xsl:value-of select="./@currency" />
-          </xsl:with-param>
-          <xsl:with-param name="id">
-           <xsl:value-of select="$id" />
-          </xsl:with-param>
-        </xsl:call-template>
-      </total_launch_cost>
-		</xsl:for-each-group>
-  </xsl:template>
-
-  <xsl:template name="add">
-    <xsl:param name="c"/>
-    <xsl:param name="id"/>
-    <xsl:value-of select='format-number(sum(for $i in /flight_schedule/launches/launch[@customer_ref = $id] return $i/cost[@currency = $c]),"#")' />
-  </xsl:template>
-
-  <xsl:template match="/flight_schedule/locations"/>
-
-  <xsl:template match="/flight_schedule/locations/location">
-    <xsl:value-of select="." />
-  </xsl:template>
-
-  <xsl:template match="/flight_schedule/launches"/>
 
   <xsl:template match="/flight_schedule/launches/launch">
     <launch>
@@ -105,45 +72,71 @@
         <xsl:value-of select="@launchpad_ref" />
       </xsl:variable>
       <xsl:apply-templates select="/flight_schedule/launchpads/launchpad[@launchpad_id = $launchpad_ref]" />
-      <xsl:variable name="payload_ref">
-        <xsl:value-of select="@payload_ref" />
-      </xsl:variable>
-      <xsl:apply-templates select="/flight_schedule/payloads/payload[@payload_id = $payload_ref]" /> 
-      <xsl:variable name="rocket_ref">
-        <xsl:value-of select="@rocket_ref" />
-      </xsl:variable>
-      <xsl:apply-templates select="/flight_schedule/rockets/rocket[@rocket_id = $rocket_ref]" /> 
+      <payload>
+        <xsl:copy-of select="key('payload',@payload_ref)/*" />
+      </payload>
+      <rocket>
+        <xsl:copy-of select="key('rocket',@rocket_ref)/*" />
+      </rocket> 
     </launch>
   </xsl:template>
-
-  <xsl:template match="/flight_schedule/launchpads"/>
 
   <xsl:template match="/flight_schedule/launchpads/launchpad">
     <launchpad>
       <xsl:copy-of select="name" />
       <location>
-        <xsl:variable name="location_ref">
-          <xsl:value-of select="@location_ref" />
-        </xsl:variable>
-        <xsl:apply-templates select="/flight_schedule/locations/location[@location_id = $location_ref]" />
+        <xsl:value-of select="key('location',@location_ref)/." />
       </location>
     </launchpad>
   </xsl:template>
 
-  <xsl:template match="/flight_schedule/payloads"/>
+  <xsl:template match="/flight_schedule/launchpads"/>
 
-  <xsl:template match="/flight_schedule/payloads/payload">
-    <payload>
-      <xsl:copy-of select="*" />
-    </payload>
-  </xsl:template>
+  <xsl:template match="/flight_schedule/payloads"/>
 
   <xsl:template match="/flight_schedule/rockets"/>
 
-  <xsl:template match="/flight_schedule/rockets/rocket">
-    <rocket>
-      <xsl:copy-of select="*" />
-    </rocket>
+  <xsl:template match="/flight_schedule/locations"/>
+
+  <xsl:template match="/flight_schedule/launches"/>
+
+  <xsl:key name="location" match="/flight_schedule/locations/location" use="@location_id"/>
+  <xsl:key name="payload" match="/flight_schedule/payloads/payload" use="@payload_id"/>
+  <xsl:key name="rocket" match="/flight_schedule/rockets/rocket" use="@rocket_id"/>
+
+  <xsl:template name="getCosts">
+    <xsl:param name="id"/>
+    <xsl:variable name="currency">
+      <xsl:value-of select="/flight_schedule/launches/launch[@customer_ref = $id]/cost/@currency" />
+    </xsl:variable>
+    <xsl:variable name="exchange_rate">
+    <xsl:if test="contains($currency,'EUR')">
+      <xsl:value-of>1.12</xsl:value-of>
+    </xsl:if>
+    <xsl:if test="contains($currency,'PLN')">
+      <xsl:value-of>0.26</xsl:value-of>
+    </xsl:if>
+    <xsl:if test="contains($currency,'USD')">
+      <xsl:value-of>1</xsl:value-of>
+    </xsl:if>
+    </xsl:variable>
+    <xsl:variable name="costs">
+      <xsl:value-of select='format-number(sum(for $i in /flight_schedule/launches/launch[@customer_ref = $id] return ($i/cost * $exchange_rate)),"#")' />
+    </xsl:variable>
+    <total_launch_cost currency="USD">
+      <xsl:value-of select="$costs" />
+    </total_launch_cost>
+    <xsl:variable name="launches">
+      <xsl:value-of select='format-number(sum(for $i in /flight_schedule/launches/launch[@customer_ref = $id] return 1),"#")' />
+    </xsl:variable>
+    <number_of_launches>
+      <xsl:value-of select="$launches" />
+    </number_of_launches>
+    <xsl:if test="$launches != 0">
+      <average_launch_cost currency="USD">
+        <xsl:value-of select='format-number($costs div $launches,"#")' />
+      </average_launch_cost>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="monthToString">

@@ -13,7 +13,7 @@
   <title>
 	<description>Harmonogram lotów kosmicznych</description>
 	<date>
-	  <day>10</day>
+	  <day>18</day>
 	  <month>maj</month>
 	  <year>2019</year>
 	</date>
@@ -68,9 +68,9 @@
 		</rocket>
 	  </launch>
 	</launches>
-	<costs>
-	  <total_launch_cost currency="USD">848000000</total_launch_cost>
-	</costs>
+	<total_launch_cost currency="USD">848000000</total_launch_cost>
+	<number_of_launches>2</number_of_launches>
+	<average_launch_cost currency="USD">424000000</average_launch_cost>
   </customer>
   <customer>
 	<name>Eutelsat</name>
@@ -101,9 +101,9 @@
 		</rocket>
 	  </launch>
 	</launches>
-	<costs>
-	  <total_launch_cost currency="USD">96000000</total_launch_cost>
-	</costs>
+	<total_launch_cost currency="USD">96000000</total_launch_cost>
+	<number_of_launches>1</number_of_launches>
+	<average_launch_cost currency="USD">96000000</average_launch_cost>
   </customer>
   <customer>
 	<name>Iridium Communications</name>
@@ -112,27 +112,6 @@
 	  <location>McLean</location>
 	</contact_info>
 	<launches>
-	  <launch>
-		<launch_date>2017-01-14T17:54:21Z</launch_date>
-		<cost currency="USD">107000000</cost>
-		<launchpad>
-		  <name>SLC-4E</name>
-		  <location>California</location>
-		</launchpad>
-		<payload>
-		  <payload_type>
-			<satellite>Iridium NEXT-1</satellite>
-		  </payload_type>
-		  <mass unit="kg">9600</mass>
-		</payload>
-		<rocket>
-		  <name>Falcon 9</name>
-		  <mass unit="kg">549054</mass>
-		  <thrust unit="N">7607000</thrust>
-		  <payload_capacity unit="kg">22800</payload_capacity>
-		  <cost currency="USD">50000000</cost>
-		</rocket>
-	  </launch>
 	  <launch>
 		<launch_date>2014-12-06T20:40:07Z</launch_date>
 		<cost currency="USD">123000000</cost>
@@ -175,10 +154,31 @@
 		  <cost currency="USD">220000000</cost>
 		</rocket>
 	  </launch>
+	  <launch>
+		<launch_date>2017-01-14T17:54:21Z</launch_date>
+		<cost currency="USD">107000000</cost>
+		<launchpad>
+		  <name>SLC-4E</name>
+		  <location>California</location>
+		</launchpad>
+		<payload>
+		  <payload_type>
+			<satellite>Iridium NEXT-1</satellite>
+		  </payload_type>
+		  <mass unit="kg">9600</mass>
+		</payload>
+		<rocket>
+		  <name>Falcon 9</name>
+		  <mass unit="kg">549054</mass>
+		  <thrust unit="N">7607000</thrust>
+		  <payload_capacity unit="kg">22800</payload_capacity>
+		  <cost currency="USD">50000000</cost>
+		</rocket>
+	  </launch>
 	</launches>
-	<costs>
-	  <total_launch_cost currency="USD">336000000</total_launch_cost>
-	</costs>
+	<total_launch_cost currency="USD">336000000</total_launch_cost>
+	<number_of_launches>3</number_of_launches>
+	<average_launch_cost currency="USD">112000000</average_launch_cost>
   </customer>
   <customer>
 	<name>DirecTV</name>
@@ -187,6 +187,7 @@
 	  <location>El Segundo</location>
 	</contact_info>
 	<launches />
-	<costs />
+	<total_launch_cost currency="USD">0</total_launch_cost>
+	<number_of_launches>0</number_of_launches>
   </customer>
 </customers_report>
