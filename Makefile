@@ -1,4 +1,4 @@
-all: flightScheduleAuxiliary.xml flightScheduleAuxiliary.xhtml
+all: flightScheduleAuxiliary.xml flightScheduleAuxiliary.xhtml textReport
 
 flightScheduleAuxiliary.xml: flightSchedule.xml  flightScheduleAuxiliary.xslt
 # 	xsltproc --stringparam 'date' `date +"%Y%m%d"` --output auxiliary.xml flightScheduleAuxiliary.xslt flightSchedule.xml
@@ -13,7 +13,11 @@ flightScheduleAuxiliary.xhtml: flightScheduleAuxiliary.xml flightScheduleAuxilia
 	unexpand --first-only -t4 auxiliary.xhtml > flightScheduleAuxiliary.xhtml
 	-rm auxiliary.xhtml
 
+textReport: flightScheduleAuxiliary.xml reportTextFormat.xslt
+	saxon -o:report.txt flightScheduleAuxiliary.xml reportTextFormat.xslt
+	
 clean:
 	-rm flightScheduleAuxiliary.xml
 	-rm flightScheduleAuxiliary.xhtml
+	-rm report.txt
 

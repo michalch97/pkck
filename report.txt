@@ -1,0 +1,25 @@
+Raport
+Podsumowanie lotów dla klientów
+
+Harmonogram lotów kosmicznych
+
+Autorzy:
+Bartłomiej Ciesielski
+Michał Chmielewski
+
+Data wygenerowania raportu: 2019-maj-29
+
+Nazwa klienta            Numer Telefonu           Lokalizacja              Ilość lotów              Całkowity koszt          Średni koszt lotu        
+NASA                     234-234-234              Huston                   848000000 USD            2                        424000000 USD            
+Eutelsat                 342-342-342              Paris                    96000000 USD             1                        96000000 USD             
+Iridium Communications   342-342-342              McLean                   336000000 USD            3                        112000000 USD            
+DirecTV                  842-446-242              El Segundo               0 USD                    0                                                 
+
+Nazwa klienta            Data startu              Koszt lotu               Platforma startowa       Ładunek                  Rakieta                  
+NASA                     19/08/2014               86000000 USD             LC-39A - Florida         Dragon 2                 Falcon 9                 
+NASA                     17/10/2016               762000000 USD            LC-39A - Florida         Cygnus                   Delta IV                 
+Eutelsat                 15/07/2016               96000000 USD             LC-39A - Florida         Eutelsat 117 West        Falcon 9                 
+Iridium Communications   06/12/2014               123000000 USD            ELA-3 - Kourou           DirecTV-14               Ariane 5                 
+Iridium Communications   06/12/2014               106000000 USD            ELA-3 - Kourou           Galileo FOC 7            Ariane 5                 
+Iridium Communications   14/01/2017               107000000 USD            SLC-4E - California      Iridium NEXT-1           Falcon 9                 
+
