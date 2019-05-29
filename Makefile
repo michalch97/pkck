@@ -1,7 +1,6 @@
 all: flightScheduleAuxiliary.xml flightScheduleAuxiliary.xhtml textReport
 
 flightScheduleAuxiliary.xml: flightSchedule.xml  flightScheduleAuxiliary.xslt
-# 	xsltproc --stringparam 'date' `date +"%Y%m%d"` --output auxiliary.xml flightScheduleAuxiliary.xslt flightSchedule.xml
 	saxon -o:auxiliary.xml flightSchedule.xml flightScheduleAuxiliary.xslt
 	tidy -config tidy-xml.conf -m auxiliary.xml
 	unexpand --first-only -t4 auxiliary.xml > flightScheduleAuxiliary.xml
@@ -16,8 +15,15 @@ flightScheduleAuxiliary.xhtml: flightScheduleAuxiliary.xml flightScheduleAuxilia
 textReport: flightScheduleAuxiliary.xml reportTextFormat.xslt
 	saxon -o:report.txt flightScheduleAuxiliary.xml reportTextFormat.xslt
 	
+pdfReport: flightScheduleAuxiliary.xml reportPdfFormat.xslt
+	saxon -o:reportTemp.fo flightScheduleAuxiliary.xml reportPdfFormat.xslt
+	tidy -config tidy-xml.conf -m reportTemp.fo
+	fop -fo reportTemp.fo -pdf report.pdf
+	-rm reportTemp.fo
+	
 clean:
 	-rm flightScheduleAuxiliary.xml
 	-rm flightScheduleAuxiliary.xhtml
 	-rm report.txt
+	-rm report.pdf
 
