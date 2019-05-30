@@ -11,7 +11,7 @@
     <xsl:param name="plot_spacing" select="60"/>
 
     <xsl:template match="/customers_report">
-        <svg>
+        <svg class="mainSvg">
             <defs>
                 <style type="text/css">
                     <![CDATA[
@@ -34,8 +34,27 @@
                         font-weight: bold;
                         fill: DarkGreen;
                       }
+
+                      .highlight {
+                        fill: pink !important;
+                        stroke: red;
+                        stroke-width: 2;
+                      }
                     ]]>
                 </style>
+
+                <script type="text/javascript">
+                    <![CDATA[
+                    function highlight(object) {
+                        let attribute = object.getAttribute("class");
+                        if (attribute === "highlight") {
+                            object.setAttribute("class", "rect");
+                        } else {
+                            object.setAttribute("class", "highlight");
+                        }
+                    }
+                    ]]>
+                </script>
 
                 linear-gradient(to right, #1492e5 0%, #1550a2 100%)
 
@@ -105,7 +124,7 @@
         <xsl:param name="max_value"/>
         <xsl:variable name="height" select="$bar_height * . div $max_value"/>
         <g class="bar">
-            <rect x="{$bar_spacing}" y="{0}" height="{$bar_width}" width="{$height}">
+            <rect class="bar_rect" x="{$bar_spacing}" y="{0}" height="{$bar_width}" width="{$height}" onclick="highlight(this)">
                 <animate attributeName="width" from="0" to="{$height}" dur="0.7s" fill="freeze" />
             </rect>
             <text x="{$bar_spacing + $height + 20}" y="{$bar_width * 0.7}">

@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" class="mainSvg">
+   <defs>
+      <style type="text/css"><![CDATA[
+                    
+                      g.bar text {
+                        font-family: Arial;
+                        fill: black;
+                      }
+                      g.bar rect {
+                        fill: orange;
+                      }
+
+                      text.titleText {
+                        font-family: Arial;
+                        font-weight: bold;
+                        fill: red;
+                      }
+
+                      text.barLabel {
+                        font-family: Arial;
+                        font-weight: bold;
+                        fill: DarkGreen;
+                      }
+
+                      .highlight {
+                        fill: pink !important;
+                        stroke: red;
+                        stroke-width: 2;
+                      }
+                    
+                ]]></style>
+      <script type="text/javascript">
+                    
+                    function highlight(object) {
+                        let attribute = object.getAttribute("class");
+                        if (attribute === "highlight") {
+                            object.setAttribute("class", "rect");
+                        } else {
+                            object.setAttribute("class", "highlight");
+                        }
+                    }
+                    
+                </script>
+
+                linear-gradient(to right, #1492e5 0%, #1550a2 100%)
+
+                <linearGradient id="backgroundGradientBlue"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%">
+         <stop offset="0%" style="stop-color:rgb(132, 195, 237);stop-opacity:1"/>
+         <stop offset="100%" style="stop-color:rgb(83, 127, 188);stop-opacity:1"/>
+      </linearGradient>
+   </defs>
+   <rect width="100%" height="100%" fill="url(#backgroundGradientBlue)"/>
+   <text class="titleText" transform="translate(60, 40)">Sumaryczny koszt lotów</text>
+   <g transform="translate(50, 50)">
+      <g class="item" id="item-1" transform="translate(0, 0)">
+         <text class="barLabel" transform="translate(10, 24)">
+            <tspan fill-opacity="0">
+               <animate id="label_animation"
+                        attributeName="fill-opacity"
+                        dur="0.7s"
+                        to="1"
+                        fill="freeze"/>NASA</tspan>
+         </text>
+         <g transform="translate(250, 0)">
+            <g class="bar">
+               <rect class="bar_rect"
+                     x="5"
+                     y="0"
+                     height="40"
+                     width="400"
+                     onclick="highlight(this)">
+                  <animate attributeName="width"
+                           from="0"
+                           to="400"
+                           dur="0.7s"
+                           fill="freeze"/>
+               </rect>
+               <text x="425" y="28">
+                  <tspan fill-opacity="0">
+                     <animate attributeName="fill-opacity"
+                              dur="1s"
+                              begin="label_animation.end"
+                              to="1"
+                              fill="freeze"/>848000000</tspan>
+               </text>
+            </g>
+         </g>
+      </g>
+      <g class="item" id="item-2" transform="translate(0, 45)">
+         <text class="barLabel" transform="translate(10, 24)">
+            <tspan fill-opacity="0">
+               <animate id="label_animation"
+                        attributeName="fill-opacity"
+                        dur="0.7s"
+                        to="1"
+                        fill="freeze"/>Eutelsat</tspan>
+         </text>
+         <g transform="translate(250, 0)">
+            <g class="bar">
+               <rect class="bar_rect"
+                     x="5"
+                     y="0"
+                     height="40"
+                     width="45.283018867924525"
+                     onclick="highlight(this)">
+                  <animate attributeName="width"
+                           from="0"
+                           to="45.283018867924525"
+                           dur="0.7s"
+                           fill="freeze"/>
+               </rect>
+               <text x="70.28301886792453" y="28">
+                  <tspan fill-opacity="0">
+                     <animate attributeName="fill-opacity"
+                              dur="1s"
+                              begin="label_animation.end"
+                              to="1"
+                              fill="freeze"/>96000000</tspan>
+               </text>
+            </g>
+         </g>
+      </g>
+      <g class="item" id="item-3" transform="translate(0, 90)">
+         <text class="barLabel" transform="translate(10, 24)">
+            <tspan fill-opacity="0">
+               <animate id="label_animation"
+                        attributeName="fill-opacity"
+                        dur="0.7s"
+                        to="1"
+                        fill="freeze"/>Iridium Communications</tspan>
+         </text>
+         <g transform="translate(250, 0)">
+            <g class="bar">
+               <rect class="bar_rect"
+                     x="5"
+                     y="0"
+                     height="40"
+                     width="158.49056603773585"
+                     onclick="highlight(this)">
+                  <animate attributeName="width"
+                           from="0"
+                           to="158.49056603773585"
+                           dur="0.7s"
+                           fill="freeze"/>
+               </rect>
+               <text x="183.49056603773585" y="28">
+                  <tspan fill-opacity="0">
+                     <animate attributeName="fill-opacity"
+                              dur="1s"
+                              begin="label_animation.end"
+                              to="1"
+                              fill="freeze"/>336000000</tspan>
+               </text>
+            </g>
+         </g>
+      </g>
+      <g class="item" id="item-4" transform="translate(0, 135)">
+         <text class="barLabel" transform="translate(10, 24)">
+            <tspan fill-opacity="0">
+               <animate id="label_animation"
+                        attributeName="fill-opacity"
+                        dur="0.7s"
+                        to="1"
+                        fill="freeze"/>DirecTV</tspan>
+         </text>
+         <g transform="translate(250, 0)">
+            <g class="bar">
+               <rect class="bar_rect"
+                     x="5"
+                     y="0"
+                     height="40"
+                     width="0"
+                     onclick="highlight(this)">
+                  <animate attributeName="width"
+                           from="0"
+                           to="0"
+                           dur="0.7s"
+                           fill="freeze"/>
+               </rect>
+               <text x="25" y="28">
+                  <tspan fill-opacity="0">
+                     <animate attributeName="fill-opacity"
+                              dur="1s"
+                              begin="label_animation.end"
+                              to="1"
+                              fill="freeze"/>0</tspan>
+               </text>
+            </g>
+         </g>
+      </g>
+   </g>
+   <g transform="translate(0, 225)">
+      <text class="titleText" transform="translate(60, 40)">Liczba lotów</text>
+      <g transform="translate(50, 50)">
+         <g class="item" id="item-1" transform="translate(0, 0)">
+            <text class="barLabel" transform="translate(10, 24)">
+               <tspan fill-opacity="0">
+                  <animate id="label_animation"
+                           attributeName="fill-opacity"
+                           dur="0.7s"
+                           to="1"
+                           fill="freeze"/>NASA</tspan>
+            </text>
+            <g transform="translate(250, 0)">
+               <g class="bar">
+                  <rect class="bar_rect"
+                        x="5"
+                        y="0"
+                        height="40"
+                        width="266.6666666666667"
+                        onclick="highlight(this)">
+                     <animate attributeName="width"
+                              from="0"
+                              to="266.6666666666667"
+                              dur="0.7s"
+                              fill="freeze"/>
+                  </rect>
+                  <text x="291.6666666666667" y="28">
+                     <tspan fill-opacity="0">
+                        <animate attributeName="fill-opacity"
+                                 dur="1s"
+                                 begin="label_animation.end"
+                                 to="1"
+                                 fill="freeze"/>2</tspan>
+                  </text>
+               </g>
+            </g>
+         </g>
+         <g class="item" id="item-2" transform="translate(0, 45)">
+            <text class="barLabel" transform="translate(10, 24)">
+               <tspan fill-opacity="0">
+                  <animate id="label_animation"
+                           attributeName="fill-opacity"
+                           dur="0.7s"
+                           to="1"
+                           fill="freeze"/>Eutelsat</tspan>
+            </text>
+            <g transform="translate(250, 0)">
+               <g class="bar">
+                  <rect class="bar_rect"
+                        x="5"
+                        y="0"
+                        height="40"
+                        width="133.33333333333334"
+                        onclick="highlight(this)">
+                     <animate attributeName="width"
+                              from="0"
+                              to="133.33333333333334"
+                              dur="0.7s"
+                              fill="freeze"/>
+                  </rect>
+                  <text x="158.33333333333334" y="28">
+                     <tspan fill-opacity="0">
+                        <animate attributeName="fill-opacity"
+                                 dur="1s"
+                                 begin="label_animation.end"
+                                 to="1"
+                                 fill="freeze"/>1</tspan>
+                  </text>
+               </g>
+            </g>
+         </g>
+         <g class="item" id="item-3" transform="translate(0, 90)">
+            <text class="barLabel" transform="translate(10, 24)">
+               <tspan fill-opacity="0">
+                  <animate id="label_animation"
+                           attributeName="fill-opacity"
+                           dur="0.7s"
+                           to="1"
+                           fill="freeze"/>Iridium Communications</tspan>
+            </text>
+            <g transform="translate(250, 0)">
+               <g class="bar">
+                  <rect class="bar_rect"
+                        x="5"
+                        y="0"
+                        height="40"
+                        width="400"
+                        onclick="highlight(this)">
+                     <animate attributeName="width"
+                              from="0"
+                              to="400"
+                              dur="0.7s"
+                              fill="freeze"/>
+                  </rect>
+                  <text x="425" y="28">
+                     <tspan fill-opacity="0">
+                        <animate attributeName="fill-opacity"
+                                 dur="1s"
+                                 begin="label_animation.end"
+                                 to="1"
+                                 fill="freeze"/>3</tspan>
+                  </text>
+               </g>
+            </g>
+         </g>
+         <g class="item" id="item-4" transform="translate(0, 135)">
+            <text class="barLabel" transform="translate(10, 24)">
+               <tspan fill-opacity="0">
+                  <animate id="label_animation"
+                           attributeName="fill-opacity"
+                           dur="0.7s"
+                           to="1"
+                           fill="freeze"/>DirecTV</tspan>
+            </text>
+            <g transform="translate(250, 0)">
+               <g class="bar">
+                  <rect class="bar_rect"
+                        x="5"
+                        y="0"
+                        height="40"
+                        width="0"
+                        onclick="highlight(this)">
+                     <animate attributeName="width"
+                              from="0"
+                              to="0"
+                              dur="0.7s"
+                              fill="freeze"/>
+                  </rect>
+                  <text x="25" y="28">
+                     <tspan fill-opacity="0">
+                        <animate attributeName="fill-opacity"
+                                 dur="1s"
+                                 begin="label_animation.end"
+                                 to="1"
+                                 fill="freeze"/>0</tspan>
+                  </text>
+               </g>
+            </g>
+         </g>
+      </g>
+   </g>
+</svg>
