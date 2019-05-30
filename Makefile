@@ -20,10 +20,14 @@ pdfReport: flightScheduleAuxiliary.xml reportPdfFormat.xslt
 	tidy -config tidy-xml.conf -m reportTemp.fo
 	fop -fo reportTemp.fo -pdf report.pdf
 	-rm reportTemp.fo
-	
+
+svgReport: flightScheduleAuxiliary.xml reportSvgFormat.xslt
+	saxon -o:report.svg flightScheduleAuxiliary.xml reportSvgFormat.xslt
+
 clean:
 	-rm flightScheduleAuxiliary.xml
 	-rm flightScheduleAuxiliary.xhtml
 	-rm report.txt
 	-rm report.pdf
+	-rm report.svg
 
