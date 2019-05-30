@@ -5,9 +5,6 @@
                 xmlns="http://www.w3.org/2000/svg">
     <xsl:output indent="yes" cdata-section-elements="style"/>
 
-    <xsl:variable name="customer_labels" select="('Nazwa klienta', 'Numer Telefonu', 'Lokalizacja',
-                                                  'Ilość lotów', 'Całkowity koszt', 'Średni koszt lotu')"/>
-
     <xsl:param name="bar_width" select="40"/>
     <xsl:param name="bar_height" select="400"/>
     <xsl:param name="bar_spacing" select="5"/>
@@ -27,17 +24,27 @@
                       }
 
                       text.titleText {
+                        font-family: Arial;
                         font-weight: bold;
-                        fill: blue;
+                        fill: red;
                       }
 
                       text.barLabel {
+                        font-family: Arial;
                         font-weight: bold;
-                        fill: green;
+                        fill: DarkGreen;
                       }
                     ]]>
                 </style>
+
+                linear-gradient(to right, #1492e5 0%, #1550a2 100%)
+
+                <linearGradient id="backgroundGradientBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:rgb(132, 195, 237);stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:rgb(83, 127, 188);stop-opacity:1" />
+                </linearGradient>
             </defs>
+            <rect width="100%" height="100%" fill="url(#backgroundGradientBlue)"/>
 
             <xsl:variable name="customer_count" select="count(./customer)"/>
 
@@ -58,44 +65,54 @@
     </xsl:template>
 
     <xsl:template match="/customers_report/customer/total_launch_cost">
-        <xsl:variable name="prev-item" select="../preceding-sibling::customer"/>
-        <g class="item" id="item-{position()}"
-           transform="translate(0, {count($prev-item) * ($bar_width + $bar_spacing)})">
-
-            <text class="barLabel" transform="translate(10, {$bar_width * 0.6})">
-                <xsl:value-of select="./../name"/>
-            </text>
-            <g transform="translate(200, 0)">
-                <xsl:call-template name="draw_column">
-                    <xsl:with-param name="max_value" select="max(/customers_report/customer/total_launch_cost)"/>
-                </xsl:call-template>
-            </g>
-        </g>
+        <xsl:variable name="prev_item" select="../preceding-sibling::customer"/>
+        <xsl:call-template name="draw_node">
+            <xsl:with-param name="prev_item" select="$prev_item"/>
+            <xsl:with-param name="node_name" select="/customers_report/customer/total_launch_cost"/>
+        </xsl:call-template>
     </xsl:template>
 
     <xsl:template match="/customers_report/customer/number_of_launches">
-        <xsl:variable name="prev-item" select="../preceding-sibling::customer"/>
+        <xsl:variable name="prev_item" select="../preceding-sibling::customer"/>
+        <xsl:call-template name="draw_node">
+            <xsl:with-param name="prev_item" select="$prev_item"/>
+            <xsl:with-param name="node_name" select="/customers_report/customer/number_of_launches"/>
+        </xsl:call-template>
+    </xsl:template>
+
+    <xsl:template name="draw_node">
+        <xsl:param name="prev_item"/>
+        <xsl:param name="node_name"/>
+
         <g class="item" id="item-{position()}"
-           transform="translate(0, {count($prev-item) * ($bar_width + $bar_spacing)})">
+           transform="translate(0, {count($prev_item) * ($bar_width + $bar_spacing)})">
 
             <text class="barLabel" transform="translate(10, {$bar_width * 0.6})">
-                <xsl:value-of select="./../name"/>
+                <tspan fill-opacity="0">
+                    <animate id="label_animation" attributeName="fill-opacity" dur="0.7s" to="1" fill="freeze"/>
+                    <xsl:value-of select="./../name"/>
+                </tspan>
             </text>
-            <g transform="translate(200, 0)">
-                <xsl:call-template name="draw_column">
-                    <xsl:with-param name="max_value" select="max(/customers_report/customer/number_of_launches)"/>
+            <g transform="translate(250, 0)">
+                <xsl:call-template name="draw_bar">
+                    <xsl:with-param name="max_value" select="max($node_name)"/>
                 </xsl:call-template>
             </g>
         </g>
     </xsl:template>
 
-    <xsl:template name="draw_column">
+    <xsl:template name="draw_bar">
         <xsl:param name="max_value"/>
         <xsl:variable name="height" select="$bar_height * . div $max_value"/>
         <g class="bar">
-            <rect x="{$bar_spacing}" y="{0}" height="{$bar_width}" width="{$height}"/>
+            <rect x="{$bar_spacing}" y="{0}" height="{$bar_width}" width="{$height}">
+                <animate attributeName="width" from="0" to="{$height}" dur="0.7s" fill="freeze" />
+            </rect>
             <text x="{$bar_spacing + $height + 20}" y="{$bar_width * 0.7}">
-                <xsl:value-of select="."/>
+                <tspan fill-opacity="0">
+                    <animate attributeName="fill-opacity" dur="1s" begin="label_animation.end" to="1" fill="freeze"/>
+                    <xsl:value-of select="."/>
+                </tspan>
             </text>
         </g>
     </xsl:template>
